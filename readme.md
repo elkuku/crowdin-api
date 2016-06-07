@@ -1,6 +1,6 @@
 # Crowdin API implementation in PHP
 
-Inspired by https://github.com/jjanvier/php-crowdin-lib
+Inspired by https://github.com/akeneo/php-crowdin-api
 
 ## Implemented
 
