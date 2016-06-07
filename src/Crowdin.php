@@ -13,6 +13,7 @@ use GuzzleHttp\Client as HttpClient;
 /**
  * Class for interacting with Crowdin.
  *
+ * @property-read  Package\Directory    $directory    Crowdin API object for the Directory package.
  * @property-read  Package\File         $file         Crowdin API object for the File package.
  * @property-read  Package\Translation  $translation  Crowdin API object for the Translation package.
  *
