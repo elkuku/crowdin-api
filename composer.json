@@ -1,0 +1,21 @@
+{
+    "name": "elkuku/crowdin-api",
+    "description": "A crowdin API implementation in PHP",
+    "type": "library",
+    "require": {
+        "php": ">=5.5|>=7.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "license": "GNU GPL",
+    "authors": [
+        {
+            "name": "Nikolai Plath",
+            "email": "der.el.kuku@gmail.com"
+        }
+    ],
+  "autoload": {
+    "psr-4": {
+      "ElKuKu\\Crowdin\\": "src/"
+    }
+  }
+}
