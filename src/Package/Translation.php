@@ -26,7 +26,8 @@ Class Translation extends Package
 	 * @param   boolean                      $importEqualSuggestions  IDK.
 	 * @param   boolean                      $autoImproveImports      IDK.
 	 *
-	 * @see https://crowdin.com/page/api/upload-translation
+	 * @see     https://crowdin.com/page/api/upload-translation
+	 * @since   1.0.1
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
@@ -75,7 +76,8 @@ Class Translation extends Package
 	 * Track overall translation and proofreading progresses of each target language.
 	 * Default response format is XML.
 	 *
-	 * @see https://crowdin.com/page/api/status
+	 * @see    https://crowdin.com/page/api/status
+	 * @since  1.0.1
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */

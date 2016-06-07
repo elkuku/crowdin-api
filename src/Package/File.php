@@ -26,6 +26,7 @@ Class File extends Package
 	 * @param   string       $branch       The branch.
 	 *
 	 * @see https://crowdin.com/page/api/add-file
+	 * @since  1.0
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
@@ -87,6 +88,7 @@ Class File extends Package
 	 * @param   string       $branch       The branch.
 	 *
 	 * @see https://crowdin.com/page/api/update-file
+	 * @since  1.0
 	 *      
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
@@ -139,6 +141,7 @@ Class File extends Package
 	 * @param   string  $file  The file to delete.
 	 *
 	 * @see https://crowdin.com/page/api/delete-file
+	 * @since  1.0
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
@@ -163,6 +166,7 @@ Class File extends Package
 	 * @param   string  $toPath    Export to path.
 	 *
 	 * @see    https://crowdin.com/page/api/export-file
+	 * @since  1.0
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
