@@ -138,7 +138,7 @@ Class File extends Package
 	 *
 	 * @param   string  $file  The file to delete.
 	 *
-	 * @see https://crowdin.net/page/api/delete-file
+	 * @see https://crowdin.com/page/api/delete-file
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
@@ -162,7 +162,7 @@ Class File extends Package
 	 * @param   string  $language  The language tag.
 	 * @param   string  $toPath    Export to path.
 	 *
-	 * @see    https://crowdin.net/page/api/export-file
+	 * @see    https://crowdin.com/page/api/export-file
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */

@@ -36,8 +36,8 @@ $crowdin->file->delete('{crowdin path}');
 
 * `add()` https://crowdin.com/page/api/add-file
 * `update()` https://crowdin.com/page/api/update-file
-* `delete()` https://crowdin.net/page/api/delete-file
-* `export()` https://crowdin.net/page/api/export-file
+* `delete()` https://crowdin.com/page/api/delete-file
+* `export()` https://crowdin.com/page/api/export-file
 
 ## @todo - Methods not implemented (yet)
 
