@@ -71,7 +71,7 @@ Class Directory extends Package
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function change($name, $newName = '', $title = '', $exportPattern = '', $branch = '')
+	public function update($name, $newName = '', $title = '', $exportPattern = '', $branch = '')
 	{
 		$path = sprintf(
 			'project/%s/change-directory?key=%s',
