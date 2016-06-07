@@ -50,26 +50,7 @@ Class File extends Package
 			];
 		}
 
-		$data[] = [
-			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
-			'contents' => fopen($languagefile->getLocalPath(), 'r')
-		];
-
-		if ($languagefile->getTitle())
-		{
-			$data[] = [
-				'name'     => 'titles[' . $languagefile->getCrowdinPath() . ']',
-				'contents' => $languagefile->getTitle()
-			];
-		}
-
-		if ($languagefile->getExportPattern())
-		{
-			$data[] = [
-				'name'     => 'export_patterns[' . $languagefile->getCrowdinPath() . ']',
-				'contents' => $languagefile->getExportPattern()
-			];
-		}
+		$data = $this->processLanguageFile($data, $languagefile);
 
 		return $this->getHttpClient()
 			->post($this->getBasePath('add-file'), ['multipart' => $data]);
@@ -98,26 +79,7 @@ Class File extends Package
 			];
 		}
 
-		$data[] = [
-			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
-			'contents' => fopen($languagefile->getLocalPath(), 'r')
-		];
-
-		if ($languagefile->getTitle())
-		{
-			$data[] = [
-				'name'     => 'titles[' . $languagefile->getCrowdinPath() . ']',
-				'contents' => $languagefile->getTitle()
-			];
-		}
-
-		if ($languagefile->getExportPattern())
-		{
-			$data[] = [
-				'name'     => 'export_patterns[' . $languagefile->getCrowdinPath() . ']',
-				'contents' => $languagefile->getExportPattern()
-			];
-		}
+		$data = $this->processLanguageFile($data, $languagefile);
 
 		return $this->getHttpClient()
 			->post($this->getBasePath('update-file'), ['multipart' => $data]);
@@ -163,5 +125,39 @@ Class File extends Package
 
 		return $this->getHttpClient()
 			->get($path, ['sink' => $toPath]);
+	}
+
+	/**
+	 * Process a language file.
+	 * 
+	 * @param   array         $data          Data array.
+	 * @param   Languagefile  $languagefile  The language file object.
+	 *
+	 * @return array
+	 */
+	private function processLanguageFile(array $data, Languagefile $languagefile)
+	{
+		$data[] = [
+			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
+			'contents' => fopen($languagefile->getLocalPath(), 'r')
+		];
+
+		if ($languagefile->getTitle())
+		{
+			$data[] = [
+				'name'     => 'titles[' . $languagefile->getCrowdinPath() . ']',
+				'contents' => $languagefile->getTitle()
+			];
+		}
+
+		if ($languagefile->getExportPattern())
+		{
+			$data[] = [
+				'name'     => 'export_patterns[' . $languagefile->getCrowdinPath() . ']',
+				'contents' => $languagefile->getExportPattern()
+			];
+		}
+
+		return $data;
 	}
 }
