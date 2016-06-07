@@ -69,7 +69,7 @@ class Crowdin
 
 		if (class_exists($class))
 		{
-			if (false == isset($this->$name))
+			if (false === isset($this->$name))
 			{
 				$this->$name = new $class($this->projectId, $this->apiKey, $this->httpClient);
 			}
