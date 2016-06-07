@@ -10,7 +10,7 @@ Inspired by https://github.com/akeneo/php-crowdin-api
 
 ```php
 use ElKuKu\Crowdin\Crowdin;
-use ElKuKu\Crowdin\Translation;
+use ElKuKu\Crowdin\Languagefile;
 
 $projectId = 'project-id';
 $apiKey = 'project-api-key';
@@ -18,10 +18,10 @@ $apiKey = 'project-api-key';
 $crowdin = new Crowdin($projectId, $apiKey);
 
 // Add new translation file
-$crowdin->file->add(new Translation('{local path}', '{crowdin path}'));
+$crowdin->file->add(new Languagefile('{local path}', '{crowdin path}'));
 
 // Update a translation file
-$crowdin->file->update(new Translation('{local path}', '{crowdin path}'));
+$crowdin->file->update(new Languagefile('{local path}', '{crowdin path}'));
 
 // Export a translated file
 $crowdin->file->export('{crowdin path}', '{language}', '{local path}');
