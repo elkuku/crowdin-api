@@ -9,7 +9,7 @@
 namespace ElKuKu\Crowdin\Package;
 
 use ElKuKu\Crowdin\Package;
-use ElKuKu\Crowdin\Translation;
+use ElKuKu\Crowdin\Languagefile;
 
 /**
  * Class File
@@ -21,16 +21,16 @@ Class File extends Package
 	/**
 	 * Add new file to Crowdin project.
 	 *
-	 * @param   Translation  $translation  The translation file object
-	 * @param   string       $type         The type.
-	 * @param   string       $branch       The branch.
+	 * @param   Languagefile  $languagefile  The translation file object
+	 * @param   string        $type          The type.
+	 * @param   string        $branch        The branch.
 	 *
 	 * @see https://crowdin.com/page/api/add-file
 	 * @since  1.0
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function add(Translation $translation, $type = '', $branch = '')
+	public function add(Languagefile $languagefile, $type = '', $branch = '')
 	{
 		$path = sprintf(
 			'project/%s/add-file?key=%s',
@@ -57,23 +57,23 @@ Class File extends Package
 		}
 
 		$data[] = [
-			'name'     => 'files[' . $translation->getCrowdinPath() . ']',
-			'contents' => fopen($translation->getLocalPath(), 'r')
+			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
+			'contents' => fopen($languagefile->getLocalPath(), 'r')
 		];
 
-		if ($translation->getTitle())
+		if ($languagefile->getTitle())
 		{
 			$data[] = [
-				'name'     => 'titles[' . $translation->getCrowdinPath() . ']',
-				'contents' => $translation->getTitle()
+				'name'     => 'titles[' . $languagefile->getCrowdinPath() . ']',
+				'contents' => $languagefile->getTitle()
 			];
 		}
 
-		if ($translation->getExportPattern())
+		if ($languagefile->getExportPattern())
 		{
 			$data[] = [
-				'name'     => 'export_patterns[' . $translation->getCrowdinPath() . ']',
-				'contents' => $translation->getExportPattern()
+				'name'     => 'export_patterns[' . $languagefile->getCrowdinPath() . ']',
+				'contents' => $languagefile->getExportPattern()
 			];
 		}
 
@@ -84,15 +84,15 @@ Class File extends Package
 	/**
 	 * Upload latest version of your localization file to Crowdin.
 	 *
-	 * @param   Translation  $translation  The translation file object
-	 * @param   string       $branch       The branch.
+	 * @param   Languagefile  $languagefile  The translation file object
+	 * @param   string        $branch        The branch.
 	 *
 	 * @see https://crowdin.com/page/api/update-file
 	 * @since  1.0
 	 *      
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function update(Translation $translation, $branch = '')
+	public function update(Languagefile $languagefile, $branch = '')
 	{
 		$path = sprintf(
 			'project/%s/update-file?key=%s',
@@ -111,23 +111,23 @@ Class File extends Package
 		}
 
 		$data[] = [
-			'name'     => 'files[' . $translation->getCrowdinPath() . ']',
-			'contents' => fopen($translation->getLocalPath(), 'r')
+			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
+			'contents' => fopen($languagefile->getLocalPath(), 'r')
 		];
 
-		if ($translation->getTitle())
+		if ($languagefile->getTitle())
 		{
 			$data[] = [
-				'name'     => 'titles[' . $translation->getCrowdinPath() . ']',
-				'contents' => $translation->getTitle()
+				'name'     => 'titles[' . $languagefile->getCrowdinPath() . ']',
+				'contents' => $languagefile->getTitle()
 			];
 		}
 
-		if ($translation->getExportPattern())
+		if ($languagefile->getExportPattern())
 		{
 			$data[] = [
-				'name'     => 'export_patterns[' . $translation->getCrowdinPath() . ']',
-				'contents' => $translation->getExportPattern()
+				'name'     => 'export_patterns[' . $languagefile->getCrowdinPath() . ']',
+				'contents' => $languagefile->getExportPattern()
 			];
 		}
 

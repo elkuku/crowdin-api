@@ -1,0 +1,122 @@
+<?php
+/**
+ * Crowdin API implementation in PHP.
+ *
+ * @copyright  Copyright (C) 2016 Nikolai Plath (elkuku)
+ * @license    GNU General Public License version 2 or later
+ */
+
+namespace ElKuKu\Crowdin;
+
+/**
+ * Language file class.
+ *
+ * @since  1.0.1
+ */
+class Languagefile
+{
+	/**
+	 * @var string
+	 */
+	protected $localPath;
+
+	/**
+	 * @var string
+	 */
+	protected $crowdinPath;
+
+	/**
+	 * @var string
+	 */
+	protected $title;
+
+	/**
+	 * @var string
+	 */
+	protected $exportPattern;
+
+	/**
+	 * Constructor.
+	 *
+	 * @param   string  $localPath    The path on the local file system.
+	 * @param   string  $crowdinPath  The path on Crowdin.
+	 */
+	public function __construct($localPath, $crowdinPath)
+	{
+		if (!file_exists($localPath))
+		{
+			throw new \InvalidArgumentException(sprintf('File %s does not exist', $localPath));
+		}
+
+		$this->localPath = $localPath;
+		$this->crowdinPath = $crowdinPath;
+	}
+
+	/**
+	 * Get the local path.
+	 *
+	 * @return string
+	 */
+	public function getLocalPath()
+	{
+		return $this->localPath;
+	}
+
+	/**
+	 * Get the Crowdin path.
+	 *
+	 * @return string
+	 */
+	public function getCrowdinPath()
+	{
+		return $this->crowdinPath;
+	}
+
+	/**
+	 * Set the export pattern.
+	 *
+	 * @param   string  $exportPattern  The export pattern.
+	 *
+	 * @return $this
+	 */
+	public function setExportPattern($exportPattern)
+	{
+		$this->exportPattern = $exportPattern;
+
+		return $this;
+	}
+
+	/**
+	 * Get the export pattern.
+	 *
+	 * @return string
+	 */
+	public function getExportPattern()
+	{
+		return $this->exportPattern;
+	}
+
+	/**
+	 * Set the title.
+	 *
+	 * @param   string  $title  The title.
+	 *
+	 * @return $this
+	 */
+	public function setTitle($title)
+	{
+		$this->title = $title;
+
+		return $this;
+	}
+
+	/**
+	 * Get the title.
+	 *
+	 * @return string
+	 */
+	public function getTitle()
+	{
+		return $this->title;
+	}
+}

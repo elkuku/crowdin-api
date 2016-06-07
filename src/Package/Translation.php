@@ -8,6 +8,7 @@
 
 namespace ElKuKu\Crowdin\Package;
 
+use ElKuKu\Crowdin\Languagefile;
 use ElKuKu\Crowdin\Package;
 
 /**
@@ -20,11 +21,11 @@ Class Translation extends Package
 	/**
 	 * Upload existing translations to your Crowdin project.
 	 *
-	 * @param   \ElKuKu\Crowdin\Translation  $translation             The translation object.
-	 * @param   string                       $language                The language tag.
-	 * @param   boolean                      $importDuplicates        IDK.
-	 * @param   boolean                      $importEqualSuggestions  IDK.
-	 * @param   boolean                      $autoImproveImports      IDK.
+	 * @param   Languagefile  $languagefile            The translation object.
+	 * @param   string        $language                The language tag.
+	 * @param   boolean       $importDuplicates        IDK.
+	 * @param   boolean       $importEqualSuggestions  IDK.
+	 * @param   boolean       $autoImproveImports      IDK.
 	 *
 	 * @see     https://crowdin.com/page/api/upload-translation
 	 * @since   1.0.1
@@ -32,7 +33,7 @@ Class Translation extends Package
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function upload(
-		\ElKuKu\Crowdin\Translation $translation, $language, $importDuplicates = false,
+		Languagefile $languagefile, $language, $importDuplicates = false,
 		$importEqualSuggestions = false, $autoImproveImports = false)
 	{
 		$path = sprintf(
@@ -64,8 +65,8 @@ Class Translation extends Package
 		];
 
 		$data[] = [
-			'name'     => 'files[' . $translation->getCrowdinPath() . ']',
-			'contents' => fopen($translation->getLocalPath(), 'r')
+			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
+			'contents' => fopen($languagefile->getLocalPath(), 'r')
 		];
 
 		return $this->getHttpClient()
