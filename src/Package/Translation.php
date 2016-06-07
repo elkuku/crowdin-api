@@ -23,9 +23,14 @@ Class Translation extends Package
 	 *
 	 * @param   Languagefile  $languagefile            The translation object.
 	 * @param   string        $language                The language tag.
-	 * @param   boolean       $importDuplicates        IDK.
-	 * @param   boolean       $importEqualSuggestions  IDK.
-	 * @param   boolean       $autoImproveImports      IDK.
+	 * @param   boolean       $importDuplicates        Defines whether to add translation if there is
+	 *                                                 the same translation previously added.
+	 *                                                 Acceptable values are: 0 or 1. Default is 0.
+	 * @param   boolean       $importEqualSuggestions  Defines whether to add translation if it is equal to
+	 *                                                 source string at Crowdin.
+	 *                                                 Acceptable values are: 0 or 1. Default is 0.
+	 * @param   boolean       $autoImproveImports      Mark uploaded translations as approved.
+	 *                                                 Acceptable values are: 0 or 1. Default is 0.
 	 *
 	 * @see     https://crowdin.com/page/api/upload-translation
 	 * @since   1.0.1
@@ -68,15 +73,75 @@ Class Translation extends Package
 	}
 
 	/**
+	 * Build ZIP archive with the latest translations. Please note that this method can be invoked
+	 * only once per 30 minutes (there is no such restriction for organization plans). Also API
+	 * call will be ignored if there were no changes in the project since previous export. You can
+	 * see whether ZIP archive with latest translations was actually build by status attribute
+	 * ("built" or "skipped") returned in response.
+	 *
+	 * @param   string  $branch  The name of related version branch.
+	 *
+	 * @since 1.0.4
+	 * @see   https://crowdin.com/page/api/export
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
+	public function export($branch = '')
+	{
+		$path = $this->getBasePath('export');
+
+		if ('' !== $branch)
+		{
+			$path .= '&branch=' . $branch;
+		}
+
+		return $this->getHttpClient()
+			->get($path);
+	}
+
+	/**
+	 * Download ZIP file with translations. You can choose the language of translation
+	 * you need or download all of them at once.
+	 * Note: If you would like to download the most recent translations you may want
+	 * to use export API method before downloading.
+	 *
+	 * @param   string  $package  Language code or "all" to download a bundle with translations to all languages.
+	 * @param   string  $toPath   Local path where to download the translation package.
+	 * @param   string  $branch   The name of related version branch.
+	 *
+	 * @since 1.0.4
+	 * @see   https://crowdin.com/page/api/download
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
+	public function download($package, $toPath, $branch = '')
+	{
+		$path = sprintf(
+			'project/%s/download/%s?key=%s',
+			$this->getProjectId(),
+			$package,
+			$this->getApiKey()
+		);
+
+		if ('' !== $branch)
+		{
+			$path .= '&branch=' . $branch;
+		}
+
+		return $this->getHttpClient()
+			->get($path, ['sink' => $toPath]);
+	}
+
+	/**
 	 * Track overall translation and proofreading progresses of each target language.
 	 * Default response format is XML.
 	 *
 	 * @see    https://crowdin.com/page/api/status
-	 * @since  1.0.1
+	 * @since  1.0.4
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function status()
+	public function getStatus()
 	{
 		return $this->getHttpClient()
 			->get($this->getBasePath('status'));

@@ -27,6 +27,13 @@ $crowdin->file->export('{crowdin path}', '{language}', '{local path}');
 
 // Delete a translation file
 $crowdin->file->delete('{crowdin path}');
+
+// Export (build) translation files on Crowdin
+$crowdin->translation->export();
+
+// Download a zip file containing all language files
+$crowdin->translation->download('all.zip', '/local/path/to/package.zip');
+
 ```
 
 ## Methods Implemented
@@ -44,13 +51,12 @@ $crowdin->file->delete('{crowdin path}');
 
 ### Translation
 * `upload()` https://crowdin.com/page/api/upload-translation
-* `status()` https://crowdin.com/page/api/status
+* `export()` https://crowdin.com/page/api/export
+* `download()` https://crowdin.com/page/api/download
+* `getStatus()` https://crowdin.com/page/api/status
 
 ## @todo - Methods not implemented (yet)
 
-### Translation
-	export
-	download
 ### Project
 	create
 	edit
