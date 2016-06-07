@@ -4,6 +4,8 @@ Inspired by https://github.com/akeneo/php-crowdin-api
 
 ## Installation
 
+`composer require elkuku/crowdin-api`
+
 ## Usage
 
 ```php
