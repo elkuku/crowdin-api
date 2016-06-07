@@ -1,8 +1,7 @@
 # Crowdin API implementation in PHP
 
-[![Latest Stable Version](https://poser.pugx.org/elkuku/crowdin-api/v/stable)](https://packagist.org/packages/elkuku/crowdin-api) [![Latest Unstable Version](https://poser.pugx.org/elkuku/crowdin-api/v/unstable)](https://packagist.org/packages/elkuku/crowdin-api) [![Total Downloads](https://poser.pugx.org/elkuku/crowdin-api/downloads)](https://packagist.org/packages/elkuku/crowdin-api) [![composer.lock available](https://poser.pugx.org/elkuku/crowdin-api/composerlock)](https://packagist.org/packages/elkuku/crowdin-api)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elkuku/crowdin-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elkuku/crowdin-api/?branch=master) [![Latest Stable Version](https://poser.pugx.org/elkuku/crowdin-api/v/stable)](https://packagist.org/packages/elkuku/crowdin-api) [![Latest Unstable Version](https://poser.pugx.org/elkuku/crowdin-api/v/unstable)](https://packagist.org/packages/elkuku/crowdin-api) [![composer.lock available](https://poser.pugx.org/elkuku/crowdin-api/composerlock)](https://packagist.org/packages/elkuku/crowdin-api) [![Total Downloads](https://poser.pugx.org/elkuku/crowdin-api/downloads)](https://packagist.org/packages/elkuku/crowdin-api) 
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elkuku/crowdin-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elkuku/crowdin-api/?branch=master)
 
 Inspired by https://github.com/akeneo/php-crowdin-api
 
