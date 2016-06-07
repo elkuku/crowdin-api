@@ -12,10 +12,7 @@ Inspired by https://github.com/akeneo/php-crowdin-api
 use ElKuKu\Crowdin\Crowdin;
 use ElKuKu\Crowdin\Languagefile;
 
-$projectId = 'project-id';
-$apiKey = 'project-api-key';
-
-$crowdin = new Crowdin($projectId, $apiKey);
+$crowdin = new Crowdin('{project-id}', '{api-key}');
 
 // Add new translation file
 $crowdin->file->add(new Languagefile('{local path}', '{crowdin path}'));
