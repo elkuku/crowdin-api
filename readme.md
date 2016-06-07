@@ -32,9 +32,9 @@ $crowdin->file->delete('{crowdin path}');
 ## Methods Implemented
 
 ### Directory
-* `add` https://crowdin.com/page/api/add-directory
-* `update` https://crowdin.com/page/api/change-directory
-* `delete` https://crowdin.com/page/api/delete-directory
+* `add()` https://crowdin.com/page/api/add-directory
+* `update()` https://crowdin.com/page/api/change-directory
+* `delete()` https://crowdin.com/page/api/delete-directory
 
 ### File
 * `add()` https://crowdin.com/page/api/add-file
