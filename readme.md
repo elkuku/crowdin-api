@@ -2,7 +2,33 @@
 
 Inspired by https://github.com/akeneo/php-crowdin-api
 
-## Implemented
+## Installation
+
+## Usage
+
+```php
+use ElKuKu\Crowdin\Crowdin;
+use ElKuKu\Crowdin\Translation;
+
+$projectId = 'project-id';
+$apiKey = 'project-api-key';
+
+$crowdin = new Crowdin($projectId, $apiKey);
+
+// Add new translation file
+$crowdin->file->add(new Translation('{local path}', '{crowdin path}'));
+
+// Update a translation file
+$crowdin->file->update(new Translation('{local path}', '{crowdin path}'));
+
+// Export a translated file
+$crowdin->file->export('{crowdin path}', '{language}', '{local path}');
+
+// Delete a translation file
+$crowdin->file->delete('{crowdin path}');
+```
+
+## Methods Implemented
 
 ### File
 
@@ -11,7 +37,7 @@ Inspired by https://github.com/akeneo/php-crowdin-api
 * `delete()` https://crowdin.net/page/api/delete-file
 * `export()` https://crowdin.net/page/api/export-file
 
-## @todo
+## @todo - Methods not implemented (yet)
 
 ### Directory
 	add
