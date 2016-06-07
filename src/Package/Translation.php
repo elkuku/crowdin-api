@@ -36,12 +36,6 @@ Class Translation extends Package
 		Languagefile $languagefile, $language, $importDuplicates = false,
 		$importEqualSuggestions = false, $autoImproveImports = false)
 	{
-		$path = sprintf(
-			'project/%s/upload-translation?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		$data = [];
 
 		$data[] = [
@@ -70,7 +64,7 @@ Class Translation extends Package
 		];
 
 		return $this->getHttpClient()
-			->post($path, ['multipart' => $data]);
+			->post($this->getBasePath('upload-translation'), ['multipart' => $data]);
 	}
 
 	/**
@@ -84,13 +78,7 @@ Class Translation extends Package
 	 */
 	public function status()
 	{
-		$path = sprintf(
-			'project/%s/status?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		return $this->getHttpClient()
-			->get($path);
+			->get($this->getBasePath('status'));
 	}
 }

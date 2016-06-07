@@ -75,4 +75,15 @@ abstract class Package
 	{
 		return $this->httpClient;
 	}
+
+	protected function getBasePath($action)
+	{
+		return sprintf(
+			'project/%s/%s?key=%s',
+			$this->getProjectId(),
+			$action,
+			$this->getApiKey()
+		);
+
+	}
 }

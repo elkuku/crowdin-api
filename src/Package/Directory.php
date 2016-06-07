@@ -32,12 +32,6 @@ Class Directory extends Package
 	 */
 	public function add($name, $isBranch = false, $branch = '')
 	{
-		$path = sprintf(
-			'project/%s/add-directory?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		$parameters = ['name' => $name];
 
 		if ($isBranch)
@@ -51,7 +45,7 @@ Class Directory extends Package
 		}
 
 		return $this->getHttpClient()
-			->post($path, ['form_params' => $parameters]);
+			->post($this->getBasePath('add-directory'), ['form_params' => $parameters]);
 	}
 
 	/**
@@ -73,12 +67,6 @@ Class Directory extends Package
 	 */
 	public function update($name, $newName = '', $title = '', $exportPattern = '', $branch = '')
 	{
-		$path = sprintf(
-			'project/%s/change-directory?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		$data = ['name' => $name];
 
 		if ('' !== $newName)
@@ -102,7 +90,7 @@ Class Directory extends Package
 		}
 
 		return $this->getHttpClient()
-			->post($path, ['form_params' => $data]);
+			->post($this->getBasePath('change-directory'), ['form_params' => $data]);
 	}
 
 	/**
@@ -118,13 +106,7 @@ Class Directory extends Package
 	 */
 	public function delete($name)
 	{
-		$path = sprintf(
-			'project/%s/delete-directory?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		return $this->getHttpClient()
-			->post($path, ['form_params' => ['name' => $name]]);
+			->post($this->getBasePath('delete-directory'), ['form_params' => ['name' => $name]]);
 	}
 }

@@ -32,12 +32,6 @@ Class File extends Package
 	 */
 	public function add(Languagefile $languagefile, $type = '', $branch = '')
 	{
-		$path = sprintf(
-			'project/%s/add-file?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		$data = [];
 
 		if ('' !== $type)
@@ -78,7 +72,7 @@ Class File extends Package
 		}
 
 		return $this->getHttpClient()
-			->post($path, ['multipart' => $data]);
+			->post($this->getBasePath('add-file'), ['multipart' => $data]);
 	}
 
 	/**
@@ -94,12 +88,6 @@ Class File extends Package
 	 */
 	public function update(Languagefile $languagefile, $branch = '')
 	{
-		$path = sprintf(
-			'project/%s/update-file?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		$data = [];
 
 		if ('' !== $branch)
@@ -132,7 +120,7 @@ Class File extends Package
 		}
 
 		return $this->getHttpClient()
-			->post($path, ['multipart' => $data]);
+			->post($this->getBasePath('update-file'), ['multipart' => $data]);
 	}
 
 	/**
@@ -147,14 +135,8 @@ Class File extends Package
 	 */
 	public function delete($file)
 	{
-		$path = sprintf(
-			'project/%s/delete-file?key=%s',
-			$this->getProjectId(),
-			$this->getApiKey()
-		);
-
 		return $this->getHttpClient()
-			->post($path, ['form_params' => ['file' => $file]]);
+			->post($this->getBasePath('delete-file'), ['form_params' => ['file' => $file]]);
 	}
 
 	/**
@@ -173,9 +155,8 @@ Class File extends Package
 	public function export($file, $language, $toPath)
 	{
 		$path = sprintf(
-			'project/%s/export-file?key=%s&file=%s&language=%s',
-			$this->getProjectId(),
-			$this->getApiKey(),
+			'%s&file=%s&language=%s',
+			$this->getBasePath('export-file'),
 			$file,
 			$language
 		);
