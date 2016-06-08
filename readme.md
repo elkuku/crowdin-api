@@ -64,18 +64,25 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 * `getSupported()` https://crowdin.com/page/api/supported-languages
 * `getStatus()` https://crowdin.com/page/api/language-status
 
+### Memory
+* `download()` https://crowdin.com/page/api/download-tm
+* `upload()` https://crowdin.com/page/api/upload-tm
 
 ## Methods not implemented (yet)
 
 ### Project
-	create
-	edit
-	delete
-	info
-	account
-### TM
-	download
-	upload
+* `create()`	
+* `edit()`	
+* `delete()`	
+* `info()`	
+* `account()`	
+
 ### Glossary
-	download
-	upload
+* `download()`	
+* `upload()`	
+
+## Stability
+
+Despite of being marked as `stable`, this API implementation might change method signatures etc. at least in versions `1.0.x`.
+
+Version `1.1` should mark the complete implementation with no further changes (until 1.2 `;)`)
