@@ -41,7 +41,7 @@ Class Glossary extends Package
 	 * @param   string  $file  Full path to file to upload.
 	 *
 	 * @since 1.0.5
-	 * @see   https://crowdin.com/page/api/upload-tm
+	 * @see   https://crowdin.com/page/api/upload-glossary
 	 *
 	 * @return string
 	 */
