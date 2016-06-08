@@ -60,6 +60,11 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 * `download()` https://crowdin.com/page/api/download
 * `getStatus()` https://crowdin.com/page/api/status
 
+### Language
+* `supported()` https://crowdin.com/page/api/supported-languages
+* `status()` https://crowdin.com/page/api/language-status
+
+
 ## Methods not implemented (yet)
 
 ### Project
@@ -74,7 +79,3 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 ### Glossary
 	download
 	upload
-### Language
-	supported
-	status
-
