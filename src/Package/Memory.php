@@ -31,15 +31,8 @@ Class Memory extends Package
 	 */
 	public function download($includeAssigned = true)
 	{
-		$path = $this->getBasePath('download-tm');
-
-		if (!$includeAssigned)
-		{
-			$path .= '&include_assigned=0';
-		}
-
 		return $this->getHttpClient()
-			->get($path);
+			->get($this->getBasePath('download-tm') . '&include_assigned=' . (int) $includeAssigned);
 	}
 
 	/**
@@ -105,6 +98,8 @@ Class Memory extends Package
 		if (false === $result)
 		{
 			throw new \UnexpectedValueException('File upload failed');
+
+			// @todo Some more errors pls....
 		}
 
 		return 'File has been uploaded (?)';
