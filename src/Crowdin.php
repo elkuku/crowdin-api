@@ -18,6 +18,7 @@ use GuzzleHttp\Client as HttpClient;
  * @property-read  Package\Glossary     $glossary     Crowdin API object for the Glossary package.
  * @property-read  Package\Language     $language     Crowdin API object for the Language package.
  * @property-read  Package\Memory       $memory       Crowdin API object for the Memory package.
+ * @property-read  Package\Project      $project      Crowdin API object for the Project package.
  * @property-read  Package\Translation  $translation  Crowdin API object for the Translation package.
  *
  * @since  1.0
