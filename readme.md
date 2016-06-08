@@ -35,7 +35,7 @@ $crowdin->translation->export();
 $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 ```
 
-**Note** there is fluent auto complete and lots of doc blocks to make life easy in your IDE.
+**Note:** There is fluent auto complete and lots of doc blocks, taken from the official API documentation, to make life easy in your IDE :wink:.
 
 ![Auto complete](/docu/shot-1.png?raw=true "Auto complete")
 
@@ -61,8 +61,8 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 * `getStatus()` https://crowdin.com/page/api/status
 
 ### Language
-* `supported()` https://crowdin.com/page/api/supported-languages
-* `status()` https://crowdin.com/page/api/language-status
+* `getSupported()` https://crowdin.com/page/api/supported-languages
+* `getStatus()` https://crowdin.com/page/api/language-status
 
 
 ## Methods not implemented (yet)

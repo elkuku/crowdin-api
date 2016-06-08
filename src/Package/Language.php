@@ -25,7 +25,7 @@ Class Language extends Package
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function supported()
+	public function getSupported()
 	{
 		return $this->getHttpClient()
 			->get('supported-languages');
@@ -41,7 +41,7 @@ Class Language extends Package
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function status($language)
+	public function getStatus($language)
 	{
 		return $this->getHttpClient()
 			->post($this->getBasePath('language-status'), ['form_params' => ['language' => $language]]);
