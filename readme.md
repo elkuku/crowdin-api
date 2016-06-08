@@ -19,9 +19,6 @@ $crowdin = new Crowdin('{project-id}', '{api-key}');
 // Add new translation file
 $crowdin->file->add(new Languagefile('{local path}', '{crowdin path}'));
 
-// Update a translation file
-$crowdin->file->update(new Languagefile('{local path}', '{crowdin path}'));
-
 // Export a translated file
 $crowdin->file->export('{crowdin path}', '{language}', '{local path}');
 
