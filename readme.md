@@ -33,7 +33,6 @@ $crowdin->translation->export();
 
 // Download a zip file containing all language files
 $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
-
 ```
 
 **Note** there is fluent auto complete and lots of doc blocks to make life easy in your IDE.
@@ -42,7 +41,7 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 
 ![Documentation](/docu/shot-2.png?raw=true "Documentation")
 
-## Methods Implemented
+## Methods
 
 ### Directory
 * `add()` https://crowdin.com/page/api/add-directory
@@ -61,7 +60,7 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 * `download()` https://crowdin.com/page/api/download
 * `getStatus()` https://crowdin.com/page/api/status
 
-## @todo - Methods not implemented (yet)
+## Methods not implemented (yet)
 
 ### Project
 	create
