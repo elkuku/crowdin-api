@@ -36,6 +36,7 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 ```
 
 **Note:** There is fluent auto complete and lots of doc blocks, taken from the official API documentation.
+
 ... to make life easy in your IDE :wink:
 
 ![Auto complete](/docu/shot-1.png?raw=true "Auto complete")
