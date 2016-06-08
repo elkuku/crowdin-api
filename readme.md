@@ -76,6 +76,10 @@ Version `1.1` should mark the complete implementation with no further changes (u
 * `download()` https://crowdin.com/page/api/download-tm
 * `upload()` https://crowdin.com/page/api/upload-tm
 
+### Glossary
+* `download()` https://crowdin.com/page/api/download-glossary
+* `upload()` https://crowdin.com/page/api/upload-glossary
+
 ## Methods not implemented (yet)
 
 ### Project
@@ -84,10 +88,6 @@ Version `1.1` should mark the complete implementation with no further changes (u
 * `delete()`	
 * `info()`	
 * `account()`	
-
-### Glossary
-* `download()`	
-* `upload()`	
 
 # hF
 `=;)`
