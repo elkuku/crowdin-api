@@ -51,6 +51,10 @@ Version `1.1` should mark the complete implementation with no further changes (u
 
 ## Methods
 
+### Project
+* `info()` https://crowdin.com/page/api/info
+* `delete()` https://crowdin.com/page/api/delete-project
+
 ### Directory
 * `add()` https://crowdin.com/page/api/add-directory
 * `update()` https://crowdin.com/page/api/change-directory
@@ -85,8 +89,6 @@ Version `1.1` should mark the complete implementation with no further changes (u
 ### Project
 * `create()`	
 * `edit()`	
-* `delete()`	
-* `info()`	
 * `account()`	
 
 # hF
