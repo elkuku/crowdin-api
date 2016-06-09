@@ -21,7 +21,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = new Directory('x', 'y', new FakeClient);
+		$this->object = new Directory('{projectID}', '{APIKey}', new FakeClient);
 	}
 
 	/**
@@ -41,7 +41,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->add('foo', true, 'branch'),
 			$this->equalTo(
-				'project/x/add-directory?key=y&form_params%5Bname%5D=foo&form_params%5Bis_branch%5D=1&form_params%5Bbranch%5D=branch'
+				'project/{projectID}/add-directory?key={APIKey}&form_params%5Bname%5D=foo&form_params%5Bis_branch%5D=1&form_params%5Bbranch%5D=branch'
 			)
 		);
 	}
@@ -55,7 +55,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->update('foo', 'bar', 'title', 'pattern', 'branch'),
 			$this->equalTo(
-				'project/x/change-directory?key=y&form_params%5Bname%5D=foo&form_params%5Bnew_name%5D=bar&form_params%5Btitle%5D=title&form_params%5Bexport_pattern%5D=pattern&form_params%5Bbranch%5D=branch'
+				'project/{projectID}/change-directory?key={APIKey}&form_params%5Bname%5D=foo&form_params%5Bnew_name%5D=bar&form_params%5Btitle%5D=title&form_params%5Bexport_pattern%5D=pattern&form_params%5Bbranch%5D=branch'
 			)
 		);
 	}
@@ -69,7 +69,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->delete('foo'),
 			$this->equalTo(
-				'project/x/delete-directory?key=y&form_params%5Bname%5D=foo'
+				'project/{projectID}/delete-directory?key={APIKey}&form_params%5Bname%5D=foo'
 			)
 		);
 	}

@@ -22,7 +22,7 @@ class FileTest extends PHPUnit_Framework_TestCase
 	 */
 	protected function setUp()
 	{
-		$this->object = new File('x', 'y', new FakeClient);
+		$this->object = new File('{projectID}', '{APIKey}', new FakeClient);
 	}
 
 	/**
@@ -37,7 +37,9 @@ class FileTest extends PHPUnit_Framework_TestCase
 				'type',
 				'branch'
 			),
-			$this->equalTo('project/x/add-file?key=y&multipart%5B0%5D%5Bname%5D=type&multipart%5B0%5D%5Bcontents%5D=type&multipart%5B1%5D%5Bname%5D=branch&multipart%5B1%5D%5Bcontents%5D=branch&multipart%5B2%5D%5Bname%5D=files%5Bcrowdinpath%5D')
+			$this->equalTo(
+				'project/{projectID}/add-file?key={APIKey}&multipart%5B0%5D%5Bname%5D=type&multipart%5B0%5D%5Bcontents%5D=type&multipart%5B1%5D%5Bname%5D=branch&multipart%5B1%5D%5Bcontents%5D=branch&multipart%5B2%5D%5Bname%5D=files%5Bcrowdinpath%5D'
+			)
 		);
 	}
 
@@ -52,10 +54,10 @@ class FileTest extends PHPUnit_Framework_TestCase
 		$languageFile->setTitle('title');
 		$languageFile->setExportPattern('pattern');
 
-		$expected = 'project/x/update-file?key=y&multipart%5B0%5D%5Bname%5D=branch&multipart%5B0%5D%5Bcontents%5D=branch'
-			. '&multipart%5B1%5D%5Bname%5D=files%5Bcrowdinpath%5D&multipart%5B2%5D%5Bname%5D=titles%5Bcrowdinpath%5D'
-			. '&multipart%5B2%5D%5Bcontents%5D=title&multipart%5B3%5D%5Bname%5D=export_patterns%5Bcrowdinpath%5D'
-			. '&multipart%5B3%5D%5Bcontents%5D=pattern';
+		$expected = 'project/{projectID}/update-file?key={APIKey}&multipart%5B0%5D%5Bname%5D=branch'
+			. '&multipart%5B0%5D%5Bcontents%5D=branch&multipart%5B1%5D%5Bname%5D=files%5Bcrowdinpath%5D'
+			. '&multipart%5B2%5D%5Bname%5D=titles%5Bcrowdinpath%5D&multipart%5B2%5D%5Bcontents%5D=title'
+			. '&multipart%5B3%5D%5Bname%5D=export_patterns%5Bcrowdinpath%5D&multipart%5B3%5D%5Bcontents%5D=pattern';
 
 		$this->assertThat(
 			$this->object->update($languageFile, 'branch'),
@@ -71,7 +73,7 @@ class FileTest extends PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->delete(new Languagefile(__dir__ . '/Data/test.txt', 'crowdinpath')),
-			$this->equalTo('project/x/delete-file?key=y&')
+			$this->equalTo('project/{projectID}/delete-file?key={APIKey}&')
 		);
 	}
 
@@ -83,7 +85,9 @@ class FileTest extends PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->export('foo', 'lang', 'foo'),
-			$this->equalTo('project/x/export-file?key=y&file=foo&language=lang&sink=foo')
+			$this->equalTo(
+				'project/{projectID}/export-file?key={APIKey}&file=foo&language=lang&sink=foo'
+			)
 		);
 	}
 }

@@ -12,11 +12,11 @@ class FakeClient extends \GuzzleHttp\Client
 {
 	public function get($uri, array $options = [])
 	{
-		return $options ? $uri . '&' . http_build_query($options) : $uri;
+		return count($options) ? $uri . '&' . http_build_query($options) : $uri;
 	}
 
 	public function post($uri, array $options = [])
 	{
-		return $options ? $uri . '&' . http_build_query($options) : $uri;
+		return count($options) ? $uri . '&' . http_build_query($options) : $uri;
 	}
 }
