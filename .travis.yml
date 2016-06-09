@@ -7,12 +7,13 @@ env:
     - RUN_PHPCS="no"
     - USE_SCRUTINIZER="no"
 
-php:
-  - '5.6'
-  env: PHPUNIT_FLAGS="--coverage-clover=coverage.clover" RUN_PHPCS="yes" USE_SCRUTINIZER="yes"
-  - '7.0'
-  - hhvm
-  - nightly
+matrix:
+  include:
+    - php: 5.6
+      env: PHPUNIT_FLAGS="--coverage-clover=coverage.clover" RUN_PHPCS="yes" USE_SCRUTINIZER="yes"
+    - php: 7.0
+    - php: hhvm
+    - php: nightly
 
 before_install:
   - composer self-update
