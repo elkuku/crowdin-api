@@ -67,6 +67,8 @@ Class Glossary extends Package
 
 		 */
 
+		// @codeCoverageIgnoreStart
+
 		$post_params = array();
 		$request_url = 'https://api.crowdin.com/api/' . $this->getBasePath('upload-glossary');
 
@@ -103,5 +105,7 @@ Class Glossary extends Package
 		}
 
 		return 'File has been uploaded (?)';
+
+		// @codeCoverageIgnoreEnd
 	}
 }
