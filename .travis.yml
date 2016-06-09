@@ -2,8 +2,14 @@ sudo: false
 
 language: php
 
+env:
+  global:
+    - RUN_PHPCS="no"
+    - USE_SCRUTINIZER="no"
+
 php:
   - '5.6'
+  env: PHPUNIT_FLAGS="--coverage-clover=coverage.clover" RUN_PHPCS="yes" USE_SCRUTINIZER="yes"
   - '7.0'
   - hhvm
   - nightly
@@ -13,3 +19,8 @@ before_install:
 
 install:
   - composer install
+script:
+#  - ant clean
+  - vendor/bin/phpunit --configuration phpunit.travis.xml $PHPUNIT_FLAGS
+  - if [ "$USE_SCRUTINIZER" == "yes" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi;
+  - if [ "$USE_SCRUTINIZER" == "yes" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi;
