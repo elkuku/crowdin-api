@@ -76,6 +76,13 @@ abstract class Package
 		return $this->httpClient;
 	}
 
+	/**
+	 * Get the base path for the command including an action.
+	 *
+	 * @param   string  $action  The action to perform.
+	 *
+	 * @return string
+	 */
 	protected function getBasePath($action)
 	{
 		return sprintf(
@@ -84,6 +91,5 @@ abstract class Package
 			$action,
 			$this->getApiKey()
 		);
-
 	}
 }
