@@ -16,21 +16,25 @@ namespace ElKuKu\Crowdin;
 class Languagefile
 {
 	/**
+	 * The path on the local file system.
 	 * @var string
 	 */
 	protected $localPath;
 
 	/**
+	 * The path at crowdin.
 	 * @var string
 	 */
 	protected $crowdinPath;
 
 	/**
+	 * The language file title.
 	 * @var string
 	 */
 	protected $title;
 
 	/**
+	 * The export pattern.
 	 * @var string
 	 */
 	protected $exportPattern;

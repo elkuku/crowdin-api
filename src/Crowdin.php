@@ -26,19 +26,22 @@ use GuzzleHttp\Client as HttpClient;
 class Crowdin
 {
 	/**
+	 * The Crowdin project id.
 	 * @var string
 	 */
-	protected $projectId;
+	private $projectId;
 
 	/**
+	 * The Crowdin API key.
 	 * @var string
 	 */
-	protected $apiKey;
+	private $apiKey;
 
 	/**
+	 * The HTTP client object.
 	 * @var HttpClient
 	 */
-	protected $httpClient;
+	private $httpClient;
 
 	/**
 	 * Constructor.

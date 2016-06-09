@@ -18,16 +18,19 @@ use GuzzleHttp\Client as HttpClient;
 abstract class Package
 {
 	/**
+	 * The Crowdin project id.
 	 * @var string
 	 */
 	private $projectId;
 
 	/**
+	 * The Crowdin API key.
 	 * @var string
 	 */
 	private $apiKey;
 
 	/**
+	 * The HTTP client object.
 	 * @var HttpClient
 	 */
 	private $httpClient;
