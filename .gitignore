@@ -1,2 +1,4 @@
 vendor/*
-build/*
+build/coverage/*
+build/docs/*
+build/logs/*
