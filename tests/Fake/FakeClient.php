@@ -1,20 +1,43 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: elkuku
- * Date: 07.06.16
- * Time: 11:16
+ * Crowdin API implementation in PHP.
+ *
+ * @copyright  Copyright (C) 2016 Nikolai Plath (elkuku)
+ * @license    GNU General Public License version 2 or later
  */
 
 namespace Tests\Fake;
 
-class FakeClient extends \GuzzleHttp\Client
+use GuzzleHttp\Client;
+
+/**
+ * Class FakeClient
+ *
+ * @since  1.0.7
+ */
+class FakeClient extends Client
 {
+	/**
+	 * Get.
+	 *
+	 * @param   string  $uri      The URI.
+	 * @param   array   $options  Array with options.
+	 *
+	 * @return string
+	 */
 	public function get($uri, array $options = [])
 	{
 		return count($options) ? $uri . '&' . http_build_query($options) : $uri;
 	}
 
+	/**
+	 * Post.
+	 *
+	 * @param   string  $uri      The URI.
+	 * @param   array   $options  Array with options.
+	 *
+	 * @return string
+	 */
 	public function post($uri, array $options = [])
 	{
 		return count($options) ? $uri . '&' . http_build_query($options) : $uri;
