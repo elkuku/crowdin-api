@@ -51,6 +51,21 @@ class PackageTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
+	 * @covers ElKuKu\Crowdin\Package::__construct
+	 *
+	 * @return void
+	 */
+	public function test__construct()
+	{
+		$this->assertThat(
+			$this->object,
+			$this->isInstanceOf('Tests\Fake\FakePackage')
+		);
+	}
+
+	/**
+	 * Test method.
+	 *
 	 * @covers ElKuKu\Crowdin\Package::getApiKey
 	 *
 	 * @return void
