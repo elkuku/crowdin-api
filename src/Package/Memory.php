@@ -43,7 +43,7 @@ Class Memory extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/upload-tm
 	 *
-	 * @return string
+	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function upload($file)
 	{
@@ -52,60 +52,12 @@ Class Memory extends Package
 			throw new \UnexpectedValueException('File not found for upload');
 		}
 
-		/*
-		 * @todo Crowdin does not accept Guzzle's POST requests.
-		 * She just tells me:
-		 * <code>4</code>
-		 * <message>No files specified in request</message>
-		 *
-		 *  :(
+		$data = [[
+			'name'     => 'file',
+			'contents' => fopen($file, 'r')
+		]];
 
 		return $this->getHttpClient()
-			->post($this->getBasePath('upload-tm'), ['form_params' => ['file' => $file]]);
-
-		HELP WANTED !!!
-
-		 */
-
-		// @codeCoverageIgnoreStart
-
-		$post_params = array();
-		$request_url = 'https://api.crowdin.com/api/' . $this->getBasePath('upload-tm');
-
-		if (function_exists('curl_file_create'))
-		{
-			$post_params['file'] = curl_file_create($file);
-		}
-		else
-		{
-			/*
-			 * This does NOT seem to work with Mrs. Crowdin...
-			 * ... comes from their docs
-			 * $post_params['file'] = '@/home/crowdin/test.tmx';
-			 */
-			throw new \RuntimeException('This version of cURL does not seem to work (with Crowdin...)');
-		}
-
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, $request_url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_params);
-
-		$result = curl_exec($ch);
-
-		curl_close($ch);
-
-		if (false === $result)
-		{
-			throw new \UnexpectedValueException('File upload failed');
-
-			// @todo Some more errors pls....
-		}
-
-		return 'File has been uploaded (?)';
-
-		// @codeCoverageIgnoreEnd
+			->post($this->getBasePath('upload-tm'), ['multipart' => $data]);
 	}
 }
