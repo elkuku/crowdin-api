@@ -36,9 +36,9 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 
 ... to make life easy in your IDE :wink:
 
-![Auto complete](/../gh-pages/docu/shot-1.png?raw=true "Auto complete")
+![Auto complete](/../gh-pages/images/shot-1.png?raw=true "Auto complete")
 
-![Documentation](/../gh-pages/docu/shot-2.png?raw=true "Documentation")
+![Documentation](/../gh-pages/images/shot-2.png?raw=true "Documentation")
 
 ## Stability
 
