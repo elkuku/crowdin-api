@@ -7,6 +7,7 @@
  */
 namespace Tests;
 
+use ElKuKu\Crowdin\Languageproject;
 use ElKuKu\Crowdin\Package\Project;
 use Tests\Fake\FakeClient;
 
@@ -31,6 +32,61 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new Project('{projectID}', '{APIKey}', new FakeClient);
+	}
+
+	/**
+	 * Test method.
+	 *
+	 * @covers ElKuKu\Crowdin\Package\Project::create
+	 *
+	 * @return void
+	 */
+	public function testCreate()
+	{
+		$project = new Languageproject;
+
+		$this->assertThat(
+			$this->object->create('{login}', '{account-key}', $project),
+			$this->equalTo(
+				'account/create-project?account-key={account-key}&multipart%5B0%5D%5Bname%5D=login&multipart%5B0%5D%5Bcontents%5D=%7Blogin%7D'
+			)
+		);
+	}
+
+	/**
+	 * Test method.
+	 *
+	 * @covers ElKuKu\Crowdin\Package\Project::edit
+	 *
+	 * @return void
+	 */
+	public function testEdit()
+	{
+		$project = new Languageproject;
+
+		$this->assertThat(
+			$this->object->edit($project),
+			$this->equalTo(
+				'project/{projectID}/edit-project?key={APIKey}&'
+			)
+		);
+	}
+
+	/**
+	 * Test method.
+	 *
+	 * @covers ElKuKu\Crowdin\Package\Project::getList
+	 *
+	 * @return void
+	 */
+	public function testGetList()
+	{
+		$this->assertThat(
+			$this->object->getList('{login}', '{account-key}'),
+			$this->equalTo(
+				'account/get-projects?account-key={account-key}&login={login}'
+			)
+		);
 	}
 
 	/**
