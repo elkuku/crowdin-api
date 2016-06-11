@@ -71,16 +71,9 @@ class GlossaryTest extends \PHPUnit_Framework_TestCase
 	 */
 	public function testUpload()
 	{
-		// Remove the following lines when you implement this test.
-		$this->markTestIncomplete(
-			'This test has not been implemented yet (since it does a REAL request...)'
-		);
-
-		return;
-
 		$this->assertThat(
 			$this->object->upload(__DIR__ . '/Data/test.txt'),
-			$this->equalTo('')
+			$this->equalTo('project/{projectID}/upload-glossary?key={APIKey}&multipart%5B0%5D%5Bname%5D=file')
 		);
 	}
 }
