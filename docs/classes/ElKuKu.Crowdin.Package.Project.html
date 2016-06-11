@@ -114,7 +114,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">6</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
@@ -144,37 +144,37 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1050367187"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-744817162"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1050367187" class="accordion-body collapse in">
+            <div id="namespace-744817162" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2120976289"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-310926868"></a>
                                 <a href="../namespaces/ElKuKu.html" style="margin-left: 30px; padding-left: 0">ElKuKu</a>
             </div>
-            <div id="namespace-2120976289" class="accordion-body collapse ">
+            <div id="namespace-310926868" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1823908049"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-353457935"></a>
                                 <a href="../namespaces/ElKuKu.Crowdin.html" style="margin-left: 30px; padding-left: 0">Crowdin</a>
             </div>
-            <div id="namespace-1823908049" class="accordion-body collapse ">
+            <div id="namespace-353457935" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1831564915"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1998169315"></a>
                                 <a href="../namespaces/ElKuKu.Crowdin.Package.html" style="margin-left: 30px; padding-left: 0">Package</a>
             </div>
-            <div id="namespace-1831564915" class="accordion-body collapse ">
+            <div id="namespace-1998169315" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -474,8 +474,8 @@
             <article class="method">
                 <h3 class="public ">create()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">create(string  <span class="argument">$login</span>, string  <span class="argument">$accountKey</span>, \ElKuKu\Crowdin\Languageproject  <span class="argument">$project</span>) </pre>
-                <p><em></em></p>
+                <pre class="signature" style="margin-right: 54px;">create(string  <span class="argument">$login</span>, string  <span class="argument">$accountKey</span>, \ElKuKu\Crowdin\Languageproject  <span class="argument">$project</span>) : \Psr\Http\Message\ResponseInterface</pre>
+                <p><em>Create Crowdin project.</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -483,31 +483,42 @@
                                                     <tr>
                                 <td>string</td>
                                 <td>$login </td>
-                                <td></td>
+                                <td><p>The user login.</p></td>
                             </tr>
                                                     <tr>
                                 <td>string</td>
                                 <td>$accountKey </td>
-                                <td></td>
+                                <td><p>The user account key.</p></td>
                             </tr>
                                                     <tr>
                                 <td><a href="../classes/ElKuKu.Crowdin.Languageproject.html">\ElKuKu\Crowdin\Languageproject</a></td>
                                 <td>$project </td>
-                                <td></td>
+                                <td><p>The project object.</p></td>
                             </tr>
                                             </table>
                 
                 
-                				
+                                    <h4>Returns</h4>
+                    \Psr\Http\Message\ResponseInterface
+                                    				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                                            </dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">https://crowdin.com/page/api/create-project</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            1.0.7                                
+                                                    </td>
+                    </tr>
                             </table>
         </aside>
     </div>
@@ -518,8 +529,8 @@
             <article class="method">
                 <h3 class="public ">edit()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">edit(\ElKuKu\Crowdin\Languageproject  <span class="argument">$project</span>) </pre>
-                <p><em></em></p>
+                <pre class="signature" style="margin-right: 54px;">edit(\ElKuKu\Crowdin\Languageproject  <span class="argument">$project</span>) : \Psr\Http\Message\ResponseInterface</pre>
+                <p><em>Edit Crowdin project.</em></p>
                 
 
                                     <h4>Parameters</h4>
@@ -527,21 +538,32 @@
                                                     <tr>
                                 <td><a href="../classes/ElKuKu.Crowdin.Languageproject.html">\ElKuKu\Crowdin\Languageproject</a></td>
                                 <td>$project </td>
-                                <td></td>
+                                <td><p>The language project object.</p></td>
                             </tr>
                                             </table>
                 
                 
-                				
+                                    <h4>Returns</h4>
+                    \Psr\Http\Message\ResponseInterface
+                                    				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                                            </dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">https://crowdin.com/page/api/edit-project</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            1.0.7                                
+                                                    </td>
+                    </tr>
                             </table>
         </aside>
     </div>
@@ -552,35 +574,46 @@
             <article class="method">
                 <h3 class="public ">getList()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">getList(  <span class="argument">$login</span>,   <span class="argument">$accountKey</span>) </pre>
-                <p><em></em></p>
+                <pre class="signature" style="margin-right: 54px;">getList(string  <span class="argument">$login</span>, string  <span class="argument">$accountKey</span>) : \Psr\Http\Message\ResponseInterface</pre>
+                <p><em>Get Crowdin Project details.</em></p>
                 
 
                                     <h4>Parameters</h4>
                     <table class="table table-condensed table-hover">
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$login </td>
-                                <td></td>
+                                <td><p>Your Crowdin Account login name.</p></td>
                             </tr>
                                                     <tr>
-                                <td></td>
+                                <td>string</td>
                                 <td>$accountKey </td>
-                                <td></td>
+                                <td><p>Account API key (profile settings -&gt; &quot;API &amp; SSO&quot; tab).</p></td>
                             </tr>
                                             </table>
                 
                 
-                				
+                                    <h4>Returns</h4>
+                    \Psr\Http\Message\ResponseInterface
+                                    				
                             </article>
         </div>
         <aside class="span4 detailsbar">
             <h1><i class="icon-arrow-down"></i></h1>
                                                             <dl>
-                                                                            </dl>
+                                                                                            <dt>See also</dt>
+                                                                <dd><a href=""><span class="namespace-wrapper">https://crowdin.com/page/api/get-projects</span></a></dd>
+                                                                </dl>
             <h2>Tags</h2>
             <table class="table table-condensed">
-                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            1.0.7                                
+                                                    </td>
+                    </tr>
                             </table>
         </aside>
     </div>
@@ -837,7 +870,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on June 10th, 2016 at 15:36.
+                    on June 11th, 2016 at 16:37.
                 </section>
             </section>
         </section>

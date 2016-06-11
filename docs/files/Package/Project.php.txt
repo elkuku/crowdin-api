@@ -19,23 +19,72 @@ use ElKuKu\Crowdin\Package;
 Class Project extends Package
 {
 	/**
-	 * @param   string           $login
-	 * @param   string           $accountKey
-	 * @param   Languageproject  $project
+	 * Create Crowdin project.
+	 *
+	 * @param   string           $login       The user login.
+	 * @param   string           $accountKey  The user account key.
+	 * @param   Languageproject  $project     The project object.
+	 *
+	 * @see https://crowdin.com/page/api/create-project
+	 * @since 1.0.7
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface
 	 */
 	public function create($login, $accountKey, Languageproject $project)
 	{
-		echo 'jj';
+		$path = 'account/create-project?account-key=' . $accountKey;
+
+		$params = $project->toQuery();
+
+		$params[] = [
+			'name'     => 'login',
+			'contents' => $login
+		];
+
+		return $this->getHttpClient()
+			->post($path, ['multipart' => $params]);
 	}
 
+	/**
+	 * Edit Crowdin project.
+	 *
+	 * @param   Languageproject  $project  The language project object.
+	 *
+	 * @see https://crowdin.com/page/api/edit-project
+	 * @since 1.0.7
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	public function edit(Languageproject $project)
 	{
+		$project->identifier = null;
+		$project->source_language = null;
 
+		return $this->getHttpClient()
+			->post($this->getBasePath('edit-project'), ['multipart' => $project->toQuery()]);
 	}
 
+	/**
+	 * Get Crowdin Project details.
+	 *
+	 * @param   string  $login       Your Crowdin Account login name.
+	 * @param   string  $accountKey  Account API key (profile settings -> "API & SSO" tab).
+	 *
+	 * @see https://crowdin.com/page/api/get-projects
+	 * @since 1.0.7
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface
+	 */
 	public function getList($login, $accountKey)
 	{
+		$path = sprintf(
+			'account/get-projects?account-key=%s&login=%s',
+			$accountKey,
+			$login
+		);
 
+		return $this->getHttpClient()
+			->post($path);
 	}
 
 	/**
