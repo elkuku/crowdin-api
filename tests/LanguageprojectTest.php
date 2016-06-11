@@ -9,6 +9,11 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Languageproject;
 
+/**
+ * Class LanguageprojectTest
+ *
+ * @since  1.0.7
+ */
 class LanguageprojectTest extends \PHPUnit_Framework_TestCase
 {
 	/**
@@ -19,6 +24,8 @@ class LanguageprojectTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
+	 *
+	 * @return void
 	 */
 	protected function setUp()
 	{
@@ -26,16 +33,11 @@ class LanguageprojectTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Tears down the fixture, for example, closes a network connection.
-	 * This method is called after a test is executed.
-	 */
-	protected function tearDown()
-	{
-	}
-
-	/**
+	 * Test method.
+	 *
 	 * @covers ElKuKu\Crowdin\Languageproject::toQuery
-	 * @todo   Implement testToQuery().
+	 *
+	 * @return void
 	 */
 	public function testToQuery()
 	{
