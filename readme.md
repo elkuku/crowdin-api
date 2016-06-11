@@ -1,6 +1,6 @@
 # Crowdin API implementation in PHP
 
-[![Build Status](https://travis-ci.org/elkuku/crowdin-api.svg?branch=master)](https://travis-ci.org/elkuku/crowdin-api) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elkuku/crowdin-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elkuku/crowdin-api/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/elkuku/crowdin-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/elkuku/crowdin-api/?branch=master) [![Latest Stable Version](https://poser.pugx.org/elkuku/crowdin-api/v/stable)](https://packagist.org/packages/elkuku/crowdin-api) [![Latest Unstable Version](https://poser.pugx.org/elkuku/crowdin-api/v/unstable)](https://packagist.org/packages/elkuku/crowdin-api) [![License](https://poser.pugx.org/elkuku/crowdin-api/license)](https://packagist.org/packages/elkuku/crowdin-api) 
+[![Build Status](https://travis-ci.org/elkuku/crowdin-api.svg?branch=master)](https://travis-ci.org/elkuku/crowdin-api) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/elkuku/crowdin-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/elkuku/crowdin-api/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/elkuku/crowdin-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/elkuku/crowdin-api/?branch=master) [Coverage](https://elkuku.github.io/crowdin-api/coverage/) [![Latest Stable Version](https://poser.pugx.org/elkuku/crowdin-api/v/stable)](https://packagist.org/packages/elkuku/crowdin-api) [![Latest Unstable Version](https://poser.pugx.org/elkuku/crowdin-api/v/unstable)](https://packagist.org/packages/elkuku/crowdin-api) [![License](https://poser.pugx.org/elkuku/crowdin-api/license)](https://packagist.org/packages/elkuku/crowdin-api) 
 
 Inspired by https://github.com/akeneo/php-crowdin-api
 
@@ -48,9 +48,14 @@ Version `1.1` should mark the complete implementation with no further changes (u
 
 ## Methods
 
+[API Documentation](https://elkuku.github.io/crowdin-api/docs/)
+
 ### Project
-* `info()` https://crowdin.com/page/api/info
+* `create()` https://crowdin.com/page/api/create-project
+* `edit()` https://crowdin.com/page/api/edit-project
 * `delete()` https://crowdin.com/page/api/delete-project
+* `getInfo()` https://crowdin.com/page/api/info
+* `getList()` https://crowdin.com/page/api/get-projects
 
 ### Directory
 * `add()` https://crowdin.com/page/api/add-directory
@@ -80,13 +85,6 @@ Version `1.1` should mark the complete implementation with no further changes (u
 ### Glossary
 * `download()` https://crowdin.com/page/api/download-glossary
 * `upload()` https://crowdin.com/page/api/upload-glossary
-
-## Methods not implemented (yet)
-
-### Project
-* `create()`	
-* `edit()`	
-* `account()`	
 
 # hF
 `=;)`
