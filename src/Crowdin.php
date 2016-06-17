@@ -58,7 +58,7 @@ class Crowdin
 		$this->projectId = $projectId;
 		$this->apiKey = $apiKey;
 
-		$this->httpClient  = isset($client) ? $client : new HttpClient(['base_uri' => $baseUri]);
+		$this->httpClient = isset($client) ? $client : new HttpClient(['base_uri' => $baseUri]);
 	}
 
 	/**
