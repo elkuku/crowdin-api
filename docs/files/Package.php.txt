@@ -3,7 +3,7 @@
  * Crowdin API implementation in PHP.
  *
  * @copyright  Copyright (C) 2016 Nikolai Plath (elkuku)
- * @license    GNU General Public License version 2 or later
+ * @license    WTFPL - See license.txt
  */
 
 namespace ElKuKu\Crowdin;
