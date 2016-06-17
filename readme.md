@@ -40,12 +40,6 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 
 ![Documentation](/../gh-pages/images/shot-2.png?raw=true "Documentation")
 
-## Stability
-
-Despite of being marked as `stable`, this API implementation might change method signatures etc. at least in versions `1.0.x`.
-
-Version `1.1` should mark the complete implementation with no further changes (until 1.2 `;)`)
-
 ## Methods
 
 [API Documentation](https://elkuku.github.io/crowdin-api/docs/)
