@@ -6,7 +6,7 @@
         "php": ">=5.5|>=7.0",
         "guzzlehttp/guzzle": "~6.0"
     },
-    "license": "GNU GPL",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Nikolai Plath",
