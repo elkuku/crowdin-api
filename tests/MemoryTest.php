@@ -9,6 +9,7 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Package\Memory;
 use Tests\Fake\FakeClient;
+use Tests\Fake\FakeResponse;
 
 /**
  * Class MemoryTest
@@ -23,6 +24,11 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
+	 * @var FakeResponse
+	 */
+	protected $testResponse;
+
+	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 *
@@ -31,6 +37,7 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new Memory('{projectID}', '{APIKey}', new FakeClient);
+		$this->testResponse = new FakeResponse;
 	}
 
 	/**
@@ -44,7 +51,10 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->download(),
-			$this->equalTo('project/{projectID}/download-tm?key={APIKey}&include_assigned=1')
+			$this->equalTo(
+				$this->testResponse->setBody(
+					'project/{projectID}/download-tm?key={APIKey}&include_assigned=1')
+			)
 		);
 	}
 
@@ -59,7 +69,10 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->upload(__DIR__ . '/Data/test.txt'),
-			$this->equalTo('project/{projectID}/upload-tm?key={APIKey}&multipart%5B0%5D%5Bname%5D=file')
+			$this->equalTo(
+				$this->testResponse->setBody(
+					'project/{projectID}/upload-tm?key={APIKey}&multipart%5B0%5D%5Bname%5D=file')
+			)
 		);
 	}
 

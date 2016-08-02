@@ -9,7 +9,9 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Languagefile;
 use ElKuKu\Crowdin\Package\Translation;
+
 use Tests\Fake\FakeClient;
+use Tests\Fake\FakeResponse;
 
 /**
  * Class TranslationTest
@@ -24,6 +26,11 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
+	 * @var FakeResponse
+	 */
+	protected $testResponse;
+
+	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 *
@@ -32,6 +39,7 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new Translation('{projectID}', '{APIKey}', new FakeClient);
+		$this->testResponse = new FakeResponse;
 	}
 
 	/**
@@ -48,11 +56,13 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->upload($languageFile, '{language}'),
 			$this->equalTo(
-				'project/{projectID}/upload-translation?key={APIKey}&multipart%5B0%5D%5Bname%5D=import_duplicates'
-				. '&multipart%5B0%5D%5Bcontents%5D=0&multipart%5B1%5D%5Bname%5D=import_eq_suggestions'
-				. '&multipart%5B1%5D%5Bcontents%5D=0&multipart%5B2%5D%5Bname%5D=auto_approve_imported'
-				. '&multipart%5B2%5D%5Bcontents%5D=0&multipart%5B3%5D%5Bname%5D=language'
-				. '&multipart%5B3%5D%5Bcontents%5D=%7Blanguage%7D&multipart%5B4%5D%5Bname%5D=files%5B%7Bcrowdinpath%5D'
+				$this->testResponse->setBody(
+					'project/{projectID}/upload-translation?key={APIKey}&multipart%5B0%5D%5Bname%5D=import_duplicates'
+					. '&multipart%5B0%5D%5Bcontents%5D=0&multipart%5B1%5D%5Bname%5D=import_eq_suggestions'
+					. '&multipart%5B1%5D%5Bcontents%5D=0&multipart%5B2%5D%5Bname%5D=auto_approve_imported'
+					. '&multipart%5B2%5D%5Bcontents%5D=0&multipart%5B3%5D%5Bname%5D=language'
+					. '&multipart%5B3%5D%5Bcontents%5D=%7Blanguage%7D&multipart%5B4%5D%5Bname%5D=files%5B%7Bcrowdinpath%5D'
+				)
 			)
 		);
 	}
@@ -68,7 +78,11 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->export('{branch}'),
-			$this->equalTo('project/{projectID}/export?key={APIKey}&branch={branch}')
+			$this->equalTo(
+				$this->testResponse->setBody(
+					'project/{projectID}/export?key={APIKey}&branch={branch}'
+				)
+			)
 		);
 	}
 
@@ -83,7 +97,11 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->download('{package}', '{toPath}', '{branch}'),
-			$this->equalTo('project/{projectID}/download/{package}?key={APIKey}&branch={branch}&sink=%7BtoPath%7D')
+			$this->equalTo(
+				$this->testResponse->setBody(
+					'project/{projectID}/download/{package}?key={APIKey}&branch={branch}&sink=%7BtoPath%7D'
+				)
+			)
 		);
 	}
 
@@ -98,7 +116,11 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->assertThat(
 			$this->object->getStatus(),
-			$this->equalTo('project/{projectID}/status?key={APIKey}')
+			$this->equalTo(
+				$this->testResponse->setBody(
+					'project/{projectID}/status?key={APIKey}'
+				)
+			)
 		);
 	}
 }

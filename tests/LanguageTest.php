@@ -8,7 +8,9 @@
 namespace Tests;
 
 use ElKuKu\Crowdin\Package\Language;
+
 use Tests\Fake\FakeClient;
+use Tests\Fake\FakeResponse;
 
 /**
  * Class LanguageTest
@@ -23,6 +25,11 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
+	 * @var FakeResponse
+	 */
+	protected $testResponse;
+
+	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 *
@@ -31,6 +38,7 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new Language('{projectID}', '{APIKey}', new FakeClient);
+		$this->testResponse = new FakeResponse;
 	}
 
 	/**
@@ -45,7 +53,9 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->getSupported(),
 			$this->equalTo(
-				'supported-languages'
+				$this->testResponse->setBody(
+					'supported-languages'
+				)
 			)
 		);
 	}
@@ -62,7 +72,9 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->getStatus('{language}'),
 			$this->equalTo(
-				'project/{projectID}/language-status?key={APIKey}&form_params%5Blanguage%5D=%7Blanguage%7D'
+				$this->testResponse->setBody(
+					'project/{projectID}/language-status?key={APIKey}&form_params%5Blanguage%5D=%7Blanguage%7D'
+				)
 			)
 		);
 	}

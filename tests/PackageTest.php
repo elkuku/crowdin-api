@@ -51,6 +51,21 @@ class PackageTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
+	 * @covers ElKuKu\Crowdin\Package::getProjectId
+	 *
+	 * @return void
+	 */
+	public function testSetProjectId()
+	{
+		$this->assertThat(
+			$this->object->testGetProjectId(),
+			$this->equalTo('foo')
+		);
+	}
+
+	/**
+	 * Test method.
+	 *
 	 * @covers ElKuKu\Crowdin\Package::__construct
 	 *
 	 * @return void
@@ -75,21 +90,6 @@ class PackageTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->testGetApiKey(),
 			$this->equalTo('bar')
-		);
-	}
-
-	/**
-	 * Test method.
-	 *
-	 * @covers ElKuKu\Crowdin\Package::getBasePath
-	 *
-	 * @return void
-	 */
-	public function testGetBasePath()
-	{
-		$this->assertThat(
-			$this->object->testGetBasePath('foo'),
-			$this->equalTo('project/foo/foo?key=bar')
 		);
 	}
 

@@ -2,3 +2,4 @@ vendor/*
 build/coverage/*
 build/docs/*
 build/logs/*
+phpunit.xml
