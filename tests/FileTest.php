@@ -11,6 +11,7 @@ use ElKuKu\Crowdin\Languagefile;
 use ElKuKu\Crowdin\Package\File;
 
 use Tests\Fake\FakeClient;
+use Tests\Fake\FakeResponse;
 
 /**
  * Class FileTest
@@ -25,6 +26,11 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
+	 * @var FakeResponse
+	 */
+	protected $testResponse;
+
+	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 *
@@ -33,6 +39,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new File('{projectID}', '{APIKey}', new FakeClient);
+		$this->testResponse = new FakeResponse;
 	}
 
 	/**
@@ -51,8 +58,10 @@ class FileTest extends \PHPUnit_Framework_TestCase
 				'branch'
 			),
 			$this->equalTo(
-				'project/{projectID}/add-file?key={APIKey}&multipart%5B0%5D%5Bname%5D=type&multipart%5B0%5D%5Bcontents%5D=type'
-				. '&multipart%5B1%5D%5Bname%5D=branch&multipart%5B1%5D%5Bcontents%5D=branch&multipart%5B2%5D%5Bname%5D=files%5Bcrowdinpath%5D'
+				$this->testResponse->setBody(
+					'project/{projectID}/add-file?key={APIKey}&multipart%5B0%5D%5Bname%5D=type&multipart%5B0%5D%5Bcontents%5D=type'
+					. '&multipart%5B1%5D%5Bname%5D=branch&multipart%5B1%5D%5Bcontents%5D=branch&multipart%5B2%5D%5Bname%5D=files%5Bcrowdinpath%5D'
+				)
 			)
 		);
 	}
@@ -78,7 +87,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 
 		$this->assertThat(
 			$this->object->update($languageFile, 'branch'),
-			$this->equalTo($expected)
+			$this->equalTo($this->testResponse->setBody($expected))
 		);
 	}
 
@@ -92,8 +101,13 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	public function testDelete()
 	{
 		$this->assertThat(
-			$this->object->delete(new Languagefile(__dir__ . '/Data/test.txt', 'crowdinpath')),
-			$this->equalTo('project/{projectID}/delete-file?key={APIKey}&')
+			// @$this->object->delete(new Languagefile(__DIR__ . '/Data/test.txt', 'crowdinpath')),
+			$this->object->delete('crowdinpath'),
+			$this->equalTo(
+				$this->testResponse->setBody(
+					'project/{projectID}/delete-file?key={APIKey}&form_params%5Bfile%5D=crowdinpath'
+				)
+			)
 		);
 	}
 
@@ -109,7 +123,9 @@ class FileTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->export('foo', 'lang', 'foo'),
 			$this->equalTo(
-				'project/{projectID}/export-file?key={APIKey}&file=foo&language=lang&sink=foo'
+				$this->testResponse->setBody(
+					'project/{projectID}/export-file?key={APIKey}&file=foo&language=lang&sink=foo'
+				)
 			)
 		);
 	}

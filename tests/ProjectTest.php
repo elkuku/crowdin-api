@@ -9,7 +9,9 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Languageproject;
 use ElKuKu\Crowdin\Package\Project;
+
 use Tests\Fake\FakeClient;
+use Tests\Fake\FakeResponse;
 
 /**
  * Class ProjectTest
@@ -24,6 +26,11 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
+	 * @var FakeResponse
+	 */
+	protected $testResponse;
+
+	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 *
@@ -32,6 +39,7 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new Project('{projectID}', '{APIKey}', new FakeClient);
+		$this->testResponse = new FakeResponse;
 	}
 
 	/**
@@ -48,7 +56,9 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->create('{login}', '{account-key}', $project),
 			$this->equalTo(
-				'account/create-project?account-key={account-key}&multipart%5B0%5D%5Bname%5D=login&multipart%5B0%5D%5Bcontents%5D=%7Blogin%7D'
+				$this->testResponse->setBody(
+					'account/create-project?account-key={account-key}&multipart%5B0%5D%5Bname%5D=login&multipart%5B0%5D%5Bcontents%5D=%7Blogin%7D'
+				)
 			)
 		);
 	}
@@ -67,7 +77,9 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->edit($project),
 			$this->equalTo(
-				'project/{projectID}/edit-project?key={APIKey}&'
+				$this->testResponse->setBody(
+					'project/{projectID}/edit-project?key={APIKey}&'
+				)
 			)
 		);
 	}
@@ -84,7 +96,9 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->getList('{login}', '{account-key}'),
 			$this->equalTo(
-				'account/get-projects?account-key={account-key}&login={login}'
+				$this->testResponse->setBody(
+					'account/get-projects?account-key={account-key}&login={login}'
+				)
 			)
 		);
 	}
@@ -101,7 +115,9 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->getInfo(),
 			$this->equalTo(
-				'project/{projectID}/info?key={APIKey}'
+				$this->testResponse->setBody(
+					'project/{projectID}/info?key={APIKey}'
+				)
 			)
 		);
 	}
@@ -118,7 +134,9 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->delete(),
 			$this->equalTo(
-				'project/{projectID}/delete-project?key={APIKey}'
+				$this->testResponse->setBody(
+					'project/{projectID}/delete-project?key={APIKey}'
+				)
 			)
 		);
 	}

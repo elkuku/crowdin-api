@@ -10,6 +10,7 @@ namespace Tests;
 use ElKuKu\Crowdin\Package\Directory;
 
 use Tests\Fake\FakeClient;
+use Tests\Fake\FakeResponse;
 
 /**
  * Class DirectoryTest
@@ -24,6 +25,11 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
+	 * @var FakeResponse
+	 */
+	protected $testResponse;
+
+	/**
 	 * Sets up the fixture, for example, opens a network connection.
 	 * This method is called before a test is executed.
 	 *
@@ -32,6 +38,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->object = new Directory('{projectID}', '{APIKey}', new FakeClient);
+		$this->testResponse = new FakeResponse;
 	}
 
 	/**
@@ -46,7 +53,9 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->add('foo', true, 'branch'),
 			$this->equalTo(
-				'project/{projectID}/add-directory?key={APIKey}&form_params%5Bname%5D=foo&form_params%5Bis_branch%5D=1&form_params%5Bbranch%5D=branch'
+				$this->testResponse->setBody(
+					'project/{projectID}/add-directory?key={APIKey}&form_params%5Bname%5D=foo&form_params%5Bis_branch%5D=1&form_params%5Bbranch%5D=branch'
+				)
 			)
 		);
 	}
@@ -63,8 +72,10 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->update('foo', 'bar', 'title', 'pattern', 'branch'),
 			$this->equalTo(
-				'project/{projectID}/change-directory?key={APIKey}&form_params%5Bname%5D=foo&form_params%5Bnew_name%5D=bar'
-				. '&form_params%5Btitle%5D=title&form_params%5Bexport_pattern%5D=pattern&form_params%5Bbranch%5D=branch'
+				$this->testResponse->setBody(
+					'project/{projectID}/change-directory?key={APIKey}&form_params%5Bname%5D=foo&form_params%5Bnew_name%5D=bar'
+					. '&form_params%5Btitle%5D=title&form_params%5Bexport_pattern%5D=pattern&form_params%5Bbranch%5D=branch'
+				)
 			)
 		);
 	}
@@ -81,7 +92,9 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$this->object->delete('foo'),
 			$this->equalTo(
-				'project/{projectID}/delete-directory?key={APIKey}&form_params%5Bname%5D=foo'
+				$this->testResponse->setBody(
+					'project/{projectID}/delete-directory?key={APIKey}&form_params%5Bname%5D=foo'
+				)
 			)
 		);
 	}
