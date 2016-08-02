@@ -8,8 +8,12 @@
 
 namespace ElKuKu\Crowdin\Package;
 
-use ElKuKu\Crowdin\Languageproject;
-use ElKuKu\Crowdin\Package;
+use ElKuKu\Crowdin\
+{
+	Languageproject, Package
+};
+
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Project
@@ -28,9 +32,9 @@ Class Project extends Package
 	 * @see https://crowdin.com/page/api/create-project
 	 * @since 1.0.7
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function create($login, $accountKey, Languageproject $project)
+	public function create(string $login, string $accountKey, Languageproject $project) : ResponseInterface
 	{
 		$path = 'account/create-project?account-key=' . $accountKey;
 
@@ -53,9 +57,9 @@ Class Project extends Package
 	 * @see https://crowdin.com/page/api/edit-project
 	 * @since 1.0.7
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function edit(Languageproject $project)
+	public function edit(Languageproject $project) : ResponseInterface
 	{
 		$project->identifier = null;
 		$project->source_language = null;
@@ -73,9 +77,9 @@ Class Project extends Package
 	 * @see https://crowdin.com/page/api/get-projects
 	 * @since 1.0.7
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function getList($login, $accountKey)
+	public function getList(string $login, string $accountKey) : ResponseInterface
 	{
 		$path = sprintf(
 			'account/get-projects?account-key=%s&login=%s',
@@ -93,9 +97,9 @@ Class Project extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/info
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function getInfo()
+	public function getInfo() : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->post($this->getBasePath('info'));
@@ -107,9 +111,9 @@ Class Project extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/delete-project
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function delete()
+	public function delete() : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->get($this->getBasePath('delete-project'));

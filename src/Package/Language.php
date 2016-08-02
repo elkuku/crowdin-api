@@ -10,6 +10,8 @@ namespace ElKuKu\Crowdin\Package;
 
 use ElKuKu\Crowdin\Package;
 
+use Psr\Http\Message\ResponseInterface;
+
 /**
  * Class Language
  *
@@ -23,9 +25,9 @@ Class Language extends Package
 	 * @since 1.0.5
 	 * @see https://crowdin.com/page/api/supported-languages
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function getSupported()
+	public function getSupported() : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->get('supported-languages');
@@ -39,9 +41,9 @@ Class Language extends Package
 	 * @since 1.0.5
 	 * @see https://crowdin.com/page/api/language-status
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function getStatus($language)
+	public function getStatus(string $language) : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->post($this->getBasePath('language-status'), ['form_params' => ['language' => $language]]);

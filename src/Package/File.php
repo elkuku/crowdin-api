@@ -8,8 +8,12 @@
 
 namespace ElKuKu\Crowdin\Package;
 
-use ElKuKu\Crowdin\Package;
-use ElKuKu\Crowdin\Languagefile;
+use ElKuKu\Crowdin\
+{
+	Package, Languagefile
+};
+
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class File
@@ -28,13 +32,13 @@ Class File extends Package
 	 * @see https://crowdin.com/page/api/add-file
 	 * @since  1.0
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function add(Languagefile $languagefile, $type = '', $branch = '')
+	public function add(Languagefile $languagefile, string $type = '', string $branch = '') : ResponseInterface
 	{
 		$data = [];
 
-		if ('' !== $type)
+		if ($type)
 		{
 			$data[] = [
 				'name'     => 'type',
@@ -42,7 +46,7 @@ Class File extends Package
 			];
 		}
 
-		if ('' !== $branch)
+		if ($branch)
 		{
 			$data[] = [
 				'name'     => 'branch',
@@ -64,14 +68,14 @@ Class File extends Package
 	 *
 	 * @see https://crowdin.com/page/api/update-file
 	 * @since  1.0
-	 *      
-	 * @return \Psr\Http\Message\ResponseInterface
+	 *
+	 * @return ResponseInterface
 	 */
-	public function update(Languagefile $languagefile, $branch = '')
+	public function update(Languagefile $languagefile, $branch = '') : ResponseInterface
 	{
 		$data = [];
 
-		if ('' !== $branch)
+		if ($branch)
 		{
 			$data[] = [
 				'name'     => 'branch',
@@ -88,17 +92,17 @@ Class File extends Package
 	/**
 	 * Delete file from Crowdin project. All the translations will be lost without ability to restore them.
 	 *
-	 * @param   string  $file  The file to delete.
+	 * @param   Languagefile  $file  The file to delete.
 	 *
 	 * @see https://crowdin.com/page/api/delete-file
 	 * @since  1.0
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function delete($file)
+	public function delete(Languagefile $file) : ResponseInterface
 	{
 		return $this->getHttpClient()
-			->post($this->getBasePath('delete-file'), ['form_params' => ['file' => $file]]);
+			->post($this->getBasePath('delete-file'), ['form_params' => ['file' => $file->getCrowdinPath()]]);
 	}
 
 	/**
@@ -112,9 +116,9 @@ Class File extends Package
 	 * @see    https://crowdin.com/page/api/export-file
 	 * @since  1.0
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function export($file, $language, $toPath)
+	public function export(string $file, string $language, string $toPath) : ResponseInterface
 	{
 		$path = sprintf(
 			'%s&file=%s&language=%s',
@@ -129,13 +133,13 @@ Class File extends Package
 
 	/**
 	 * Process a language file.
-	 * 
+	 *
 	 * @param   array         $data          Data array.
 	 * @param   Languagefile  $languagefile  The language file object.
 	 *
 	 * @return array
 	 */
-	private function processLanguageFile(array $data, Languagefile $languagefile)
+	private function processLanguageFile(array $data, Languagefile $languagefile) : array
 	{
 		$data[] = [
 			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',

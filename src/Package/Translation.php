@@ -8,8 +8,12 @@
 
 namespace ElKuKu\Crowdin\Package;
 
-use ElKuKu\Crowdin\Languagefile;
-use ElKuKu\Crowdin\Package;
+use ElKuKu\Crowdin\
+{
+	Languagefile, Package
+};
+
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Translation
@@ -35,11 +39,11 @@ Class Translation extends Package
 	 * @see     https://crowdin.com/page/api/upload-translation
 	 * @since   1.0.1
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
 	public function upload(
-		Languagefile $languagefile, $language, $importDuplicates = false,
-		$importEqualSuggestions = false, $autoImproveImports = false)
+		Languagefile $languagefile, string $language, bool $importDuplicates = false,
+		bool $importEqualSuggestions = false, bool $autoImproveImports = false) : ResponseInterface
 	{
 		$data = [];
 
@@ -84,13 +88,13 @@ Class Translation extends Package
 	 * @since 1.0.4
 	 * @see   https://crowdin.com/page/api/export
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function export($branch = '')
+	public function export(string $branch = '') : ResponseInterface
 	{
 		$path = $this->getBasePath('export');
 
-		if ('' !== $branch)
+		if ($branch)
 		{
 			$path .= '&branch=' . $branch;
 		}
@@ -114,7 +118,7 @@ Class Translation extends Package
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 */
-	public function download($package, $toPath, $branch = '')
+	public function download(string $package, string $toPath, string $branch = '') : ResponseInterface
 	{
 		$path = sprintf(
 			'project/%s/download/%s?key=%s',
@@ -123,7 +127,7 @@ Class Translation extends Package
 			$this->getApiKey()
 		);
 
-		if ('' !== $branch)
+		if ($branch)
 		{
 			$path .= '&branch=' . $branch;
 		}
@@ -139,9 +143,9 @@ Class Translation extends Package
 	 * @see    https://crowdin.com/page/api/status
 	 * @since  1.0.4
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function getStatus()
+	public function getStatus() : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->get($this->getBasePath('status'));

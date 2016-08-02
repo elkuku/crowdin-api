@@ -10,6 +10,8 @@ namespace ElKuKu\Crowdin\Package;
 
 use ElKuKu\Crowdin\Package;
 
+use Psr\Http\Message\ResponseInterface;
+
 /**
  * Class Glossary
  *
@@ -27,9 +29,9 @@ Class Glossary extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/download-glossary
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function download($includeAssigned = true)
+	public function download(bool $includeAssigned = true) : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->get($this->getBasePath('download-glossary') . '&include_assigned=' . (int) $includeAssigned);
@@ -43,9 +45,9 @@ Class Glossary extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/upload-glossary
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function upload($file)
+	public function upload(string $file) : ResponseInterface
 	{
 		if (false === file_exists($file))
 		{

@@ -10,6 +10,8 @@ namespace ElKuKu\Crowdin\Package;
 
 use ElKuKu\Crowdin\Package;
 
+use Psr\Http\Message\ResponseInterface;
+
 /**
  * Class Memory
  *
@@ -27,9 +29,9 @@ Class Memory extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/download-tm
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function download($includeAssigned = true)
+	public function download(bool $includeAssigned = true) : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->get($this->getBasePath('download-tm') . '&include_assigned=' . (int) $includeAssigned);
@@ -43,9 +45,9 @@ Class Memory extends Package
 	 * @since 1.0.5
 	 * @see   https://crowdin.com/page/api/upload-tm
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function upload($file)
+	public function upload(string $file) : ResponseInterface
 	{
 		if (false === file_exists($file))
 		{

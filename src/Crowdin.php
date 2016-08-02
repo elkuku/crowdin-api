@@ -53,12 +53,12 @@ class Crowdin
 	 *
 	 * @since    1.0
 	 */
-	public function __construct($projectId, $apiKey, $baseUri = 'http://api.crowdin.net/api/', HttpClient $client = null)
+	public function __construct(string $projectId, string $apiKey, string $baseUri = 'http://api.crowdin.net/api/', HttpClient $client = null)
 	{
 		$this->projectId = $projectId;
 		$this->apiKey = $apiKey;
 
-		$this->httpClient = isset($client) ? $client : new HttpClient(['base_uri' => $baseUri]);
+		$this->httpClient = $client ?? new HttpClient(['base_uri' => $baseUri]);
 	}
 
 	/**
@@ -71,7 +71,7 @@ class Crowdin
 	 * @since   1.0
 	 * @throws  \InvalidArgumentException If $name is not a valid sub class.
 	 */
-	public function __get($name)
+	public function __get(string $name)
 	{
 		$class = 'ElKuKu\\Crowdin\\Package\\' . ucfirst($name);
 
