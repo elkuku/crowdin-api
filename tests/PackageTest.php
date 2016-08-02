@@ -107,4 +107,19 @@ class PackageTest extends \PHPUnit_Framework_TestCase
 			$this->isInstanceOf('Tests\Fake\FakeClient')
 		);
 	}
+
+	/**
+	 * Test method.
+	 *
+	 * @covers ElKuKu\Crowdin\Package::getBasePath
+	 *
+	 * @return void
+	 */
+	public function testGetBasePath()
+	{
+		$this->assertThat(
+			$this->object->testGetBasePath('action'),
+			$this->equalTo('project/foo/action?key=bar')
+		);
+	}
 }
