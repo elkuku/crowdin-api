@@ -101,8 +101,8 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	public function testDelete()
 	{
 		$this->assertThat(
-			// @$this->object->delete(new Languagefile(__DIR__ . '/Data/test.txt', 'crowdinpath')),
-			$this->object->delete('crowdinpath'),
+			$this->object->delete(new Languagefile(__DIR__ . '/Data/test.txt', 'crowdinpath')),
+			// @$this->object->delete('crowdinpath'),
 			$this->equalTo(
 				$this->testResponse->setBody(
 					'project/{projectID}/delete-file?key={APIKey}&form_params%5Bfile%5D=crowdinpath'
