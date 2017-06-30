@@ -53,7 +53,7 @@ class Crowdin
 	 *
 	 * @since    1.0
 	 */
-	public function __construct($projectId, $apiKey, $baseUri = 'http://api.crowdin.net/api/', HttpClient $client = null)
+	public function __construct($projectId, $apiKey, $baseUri = 'http://api.crowdin.com/api/', HttpClient $client = null)
 	{
 		$this->projectId = $projectId;
 		$this->apiKey = $apiKey;
