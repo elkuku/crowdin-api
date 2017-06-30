@@ -8,6 +8,7 @@
 namespace Tests;
 
 use ElKuKu\Crowdin\Package\Memory;
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -16,7 +17,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class MemoryTest extends \PHPUnit_Framework_TestCase
+class MemoryTest extends TestCase
 {
 	/**
 	 * @var Memory
@@ -43,7 +44,7 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Memory::download
+	 * @covers \ElKuKu\Crowdin\Package\Memory::download
 	 *
 	 * @return void
 	 */
@@ -61,7 +62,7 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Memory::upload
+	 * @covers \ElKuKu\Crowdin\Package\Memory::upload
 	 *
 	 * @return void
 	 */
@@ -79,7 +80,7 @@ class MemoryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Glossary::upload
+	 * @covers \ElKuKu\Crowdin\Package\Memory::upload
 	 * @expectedException  \UnexpectedValueException
 	 *
 	 * @return void

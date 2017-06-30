@@ -10,6 +10,7 @@ namespace Tests;
 use ElKuKu\Crowdin\Languageproject;
 use ElKuKu\Crowdin\Package\Project;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -18,7 +19,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class ProjectTest extends \PHPUnit_Framework_TestCase
+class ProjectTest extends TestCase
 {
 	/**
 	 * @var Project

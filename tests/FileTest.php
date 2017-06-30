@@ -10,6 +10,7 @@ namespace Tests;
 use ElKuKu\Crowdin\Languagefile;
 use ElKuKu\Crowdin\Package\File;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -18,7 +19,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class FileTest extends \PHPUnit_Framework_TestCase
+class FileTest extends TestCase
 {
 	/**
 	 * @var File
@@ -45,7 +46,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\File::add
+	 * @covers \ElKuKu\Crowdin\Package\File::add
 	 *
 	 * @return void
 	 */
@@ -69,8 +70,8 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\File::update
-	 * @covers ElKuKu\Crowdin\Package\File::processLanguageFile
+	 * @covers \ElKuKu\Crowdin\Package\File::update
+	 * @covers \ElKuKu\Crowdin\Package\File::processLanguageFile
 	 *
 	 * @return void
 	 */
@@ -94,7 +95,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\File::delete
+	 * @covers \ElKuKu\Crowdin\Package\File::delete
 	 *
 	 * @return void
 	 */
@@ -114,7 +115,7 @@ class FileTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\File::export
+	 * @covers \ElKuKu\Crowdin\Package\File::export
 	 *
 	 * @return void
 	 */

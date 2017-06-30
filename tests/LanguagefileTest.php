@@ -8,13 +8,14 @@
 namespace Tests;
 
 use ElKuKu\Crowdin\Languagefile;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class LanguagefileTest
  *
  * @since  1.0.7
  */
-class LanguagefileTest extends \PHPUnit_Framework_TestCase
+class LanguagefileTest extends TestCase
 {
 	/**
 	 * @var Languagefile

@@ -7,6 +7,7 @@
  */
 namespace Tests;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakePackage;
 
@@ -15,7 +16,7 @@ use Tests\Fake\FakePackage;
  *
  * @since  1.0.7
  */
-class PackageTest extends \PHPUnit_Framework_TestCase
+class PackageTest extends TestCase
 {
 	/**
 	 * @var FakePackage

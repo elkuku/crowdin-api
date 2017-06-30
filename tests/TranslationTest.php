@@ -10,6 +10,7 @@ namespace Tests;
 use ElKuKu\Crowdin\Languagefile;
 use ElKuKu\Crowdin\Package\Translation;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -18,7 +19,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class TranslationTest extends \PHPUnit_Framework_TestCase
+class TranslationTest extends TestCase
 {
 	/**
 	 * @var Translation
@@ -45,7 +46,7 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Translation::upload
+	 * @covers \ElKuKu\Crowdin\Package\Translation::upload
 	 *
 	 * @return void
 	 */
@@ -70,7 +71,7 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Translation::export
+	 * @covers \ElKuKu\Crowdin\Package\Translation::export
 	 *
 	 * @return void
 	 */
@@ -89,7 +90,7 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Translation::download
+	 * @covers \ElKuKu\Crowdin\Package\Translation::download
 	 *
 	 * @return void
 	 */
@@ -108,7 +109,7 @@ class TranslationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Translation::getStatus
+	 * @covers \ElKuKu\Crowdin\Package\Translation::getStatus
 	 *
 	 * @return void
 	 */

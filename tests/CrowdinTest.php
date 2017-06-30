@@ -8,13 +8,14 @@
 namespace Tests;
 
 use ElKuKu\Crowdin\Crowdin;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CrowdinTest
  *
  * @since  1.0.7
  */
-class CrowdinTest extends \PHPUnit_Framework_TestCase
+class CrowdinTest extends TestCase
 {
 	/**
 	 * @var Crowdin
@@ -24,7 +25,7 @@ class CrowdinTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Crowdin::__construct
+	 * @covers \ElKuKu\Crowdin\Crowdin::__construct
 	 *
 	 * @return void
 	 */
@@ -50,7 +51,7 @@ class CrowdinTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Crowdin::__get
+	 * @covers \ElKuKu\Crowdin\Crowdin::__get
 	 *
 	 * @return void
 	 */
@@ -65,7 +66,7 @@ class CrowdinTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Crowdin::__get
+	 * @covers \ElKuKu\Crowdin\Crowdin::__get
 	 * @expectedException  \InvalidArgumentException
 	 *
 	 * @return void

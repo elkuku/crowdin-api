@@ -9,6 +9,7 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Package\Language;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -17,7 +18,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class LanguageTest extends \PHPUnit_Framework_TestCase
+class LanguageTest extends TestCase
 {
 	/**
 	 * @var Language

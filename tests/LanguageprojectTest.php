@@ -8,13 +8,14 @@
 namespace Tests;
 
 use ElKuKu\Crowdin\Languageproject;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class LanguageprojectTest
  *
  * @since  1.0.7
  */
-class LanguageprojectTest extends \PHPUnit_Framework_TestCase
+class LanguageprojectTest extends TestCase
 {
 	/**
 	 * @var Languageproject

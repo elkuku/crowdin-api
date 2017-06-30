@@ -9,6 +9,7 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Package\Directory;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -17,7 +18,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class DirectoryTest extends \PHPUnit_Framework_TestCase
+class DirectoryTest extends TestCase
 {
 	/**
 	 * @var Directory
@@ -44,7 +45,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Directory::add
+	 * @covers \ElKuKu\Crowdin\Package\Directory::add
 	 *
 	 * @return void
 	 */
@@ -63,7 +64,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Directory::update
+	 * @covers \ElKuKu\Crowdin\Package\Directory::update
 	 *
 	 * @return void
 	 */
@@ -83,7 +84,7 @@ class DirectoryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Directory::delete
+	 * @covers \ElKuKu\Crowdin\Package\Directory::delete
 	 *
 	 * @return void
 	 */

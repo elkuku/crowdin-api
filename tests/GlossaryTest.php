@@ -9,6 +9,7 @@ namespace Tests;
 
 use ElKuKu\Crowdin\Package\Glossary;
 
+use PHPUnit\Framework\TestCase;
 use Tests\Fake\FakeClient;
 use Tests\Fake\FakeResponse;
 
@@ -17,7 +18,7 @@ use Tests\Fake\FakeResponse;
  *
  * @since  1.0.7
  */
-class GlossaryTest extends \PHPUnit_Framework_TestCase
+class GlossaryTest extends TestCase
 {
 	/**
 	 * @var Glossary
@@ -44,7 +45,7 @@ class GlossaryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Glossary::download
+	 * @covers \ElKuKu\Crowdin\Package\Glossary::download
 	 *
 	 * @return void
 	 */
@@ -62,7 +63,7 @@ class GlossaryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Glossary::upload
+	 * @covers \ElKuKu\Crowdin\Package\Glossary::upload
 	 * @expectedException  \UnexpectedValueException
 	 *
 	 * @return void
@@ -75,7 +76,7 @@ class GlossaryTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test method.
 	 *
-	 * @covers ElKuKu\Crowdin\Package\Glossary::upload
+	 * @covers \ElKuKu\Crowdin\Package\Glossary::upload
 	 *
 	 * @return void
 	 */
