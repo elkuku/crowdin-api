@@ -21,19 +21,19 @@ abstract class Package
 	 * The Crowdin project id.
 	 * @var string
 	 */
-	private $projectId;
+	private $projectId = '';
 
 	/**
 	 * The Crowdin API key.
 	 * @var string
 	 */
-	private $apiKey;
+	private $apiKey = '';
 
 	/**
 	 * The HTTP client object.
 	 * @var HttpClient
 	 */
-	private $httpClient;
+	private $httpClient = null;
 
 	/**
 	 * Constructor.
@@ -42,7 +42,7 @@ abstract class Package
 	 * @param   string      $apiKey      The API key
 	 * @param   HttpClient  $httpClient  The HTTP client object.
 	 */
-	public function __construct($projectId, $apiKey, HttpClient $httpClient)
+	public function __construct(string $projectId, string $apiKey, HttpClient $httpClient)
 	{
 		$this->projectId  = $projectId;
 		$this->apiKey     = $apiKey;
@@ -54,7 +54,7 @@ abstract class Package
 	 *
 	 * @return string
 	 */
-	protected function getProjectId()
+	protected function getProjectId() : string
 	{
 		return $this->projectId;
 	}
@@ -64,7 +64,7 @@ abstract class Package
 	 *
 	 * @return string
 	 */
-	protected function getApiKey()
+	protected function getApiKey() : string
 	{
 		return $this->apiKey;
 	}
@@ -74,7 +74,7 @@ abstract class Package
 	 *
 	 * @return HttpClient
 	 */
-	protected function getHttpClient()
+	protected function getHttpClient() : HttpClient
 	{
 		return $this->httpClient;
 	}
@@ -86,7 +86,7 @@ abstract class Package
 	 *
 	 * @return string
 	 */
-	protected function getBasePath($action)
+	protected function getBasePath(string $action) : string
 	{
 		return sprintf(
 			'project/%s/%s?key=%s',

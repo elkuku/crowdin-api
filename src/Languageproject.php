@@ -159,7 +159,7 @@ class Languageproject
 	 *
 	 * @return array
 	 */
-	public function toQuery()
+	public function toQuery() : array
 	{
 		$array = [];
 

@@ -10,6 +10,8 @@ namespace ElKuKu\Crowdin\Package;
 
 use ElKuKu\Crowdin\Package;
 
+use Psr\Http\Message\ResponseInterface;
+
 /**
  * Class Directory
  *
@@ -28,9 +30,9 @@ Class Directory extends Package
 	 * @see https://crowdin.com/page/api/add-directory
 	 * @since  1.0.3
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function add($name, $isBranch = false, $branch = '')
+	public function add(string $name, bool $isBranch = false, string $branch = '') : ResponseInterface
 	{
 		$parameters = ['name' => $name];
 
@@ -39,7 +41,7 @@ Class Directory extends Package
 			$parameters['is_branch'] = '1';
 		}
 
-		if ('' !== $branch)
+		if ($branch)
 		{
 			$parameters['branch'] = $branch;
 		}
@@ -63,28 +65,28 @@ Class Directory extends Package
 	 * @see   https://crowdin.com/page/api/change-directory
 	 * @since 1.0.3
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function update($name, $newName = '', $title = '', $exportPattern = '', $branch = '')
+	public function update(string $name, string $newName = '', string $title = '', string $exportPattern = '', string $branch = '') : ResponseInterface
 	{
 		$data = ['name' => $name];
 
-		if ('' !== $newName)
+		if ($newName)
 		{
 			$data['new_name'] = $newName;
 		}
 
-		if ('' !== $title)
+		if ($title)
 		{
 			$data['title'] = $title;
 		}
 
-		if ('' !== $exportPattern)
+		if ($exportPattern)
 		{
 			$data['export_pattern'] = $exportPattern;
 		}
 
-		if ('' !== $branch)
+		if ($branch)
 		{
 			$data['branch'] = $branch;
 		}
@@ -102,9 +104,9 @@ Class Directory extends Package
 	 * @see   https://crowdin.com/page/api/delete-directory
 	 * @since 1.0.3
 	 *
-	 * @return \Psr\Http\Message\ResponseInterface
+	 * @return ResponseInterface
 	 */
-	public function delete($name)
+	public function delete(string $name) : ResponseInterface
 	{
 		return $this->getHttpClient()
 			->post($this->getBasePath('delete-directory'), ['form_params' => ['name' => $name]]);

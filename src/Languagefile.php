@@ -45,7 +45,7 @@ class Languagefile
 	 * @param   string  $localPath    The path on the local file system.
 	 * @param   string  $crowdinPath  The path on Crowdin.
 	 */
-	public function __construct($localPath, $crowdinPath)
+	public function __construct(string $localPath, string $crowdinPath)
 	{
 		if (!file_exists($localPath))
 		{
@@ -61,9 +61,9 @@ class Languagefile
 	 *
 	 * @return string
 	 */
-	public function getLocalPath()
+	public function getLocalPath() : string
 	{
-		return $this->localPath;
+		return $this->localPath ?: '';
 	}
 
 	/**
@@ -71,7 +71,7 @@ class Languagefile
 	 *
 	 * @return string
 	 */
-	public function getCrowdinPath()
+	public function getCrowdinPath() : string
 	{
 		return $this->crowdinPath;
 	}
@@ -83,7 +83,7 @@ class Languagefile
 	 *
 	 * @return $this
 	 */
-	public function setExportPattern($exportPattern)
+	public function setExportPattern(string $exportPattern)
 	{
 		$this->exportPattern = $exportPattern;
 
@@ -95,9 +95,9 @@ class Languagefile
 	 *
 	 * @return string
 	 */
-	public function getExportPattern()
+	public function getExportPattern() : string
 	{
-		return $this->exportPattern;
+		return $this->exportPattern ?: '';
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Languagefile
 	 *
 	 * @return $this
 	 */
-	public function setTitle($title)
+	public function setTitle(string $title)
 	{
 		$this->title = $title;
 
@@ -119,8 +119,8 @@ class Languagefile
 	 *
 	 * @return string
 	 */
-	public function getTitle()
+	public function getTitle() : string
 	{
-		return $this->title;
+		return $this->title ?: '';
 	}
 }
