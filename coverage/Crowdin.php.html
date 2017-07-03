@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <title>Code Coverage for /home/elkuku/repos/crowdin-api/src/Crowdin.php</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href=".css/bootstrap.min.css" rel="stylesheet">
+  <link href=".css/style.css" rel="stylesheet">
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.min.js"></script>
-  <script src="js/respond.min.js"></script>
+  <script src=".js/html5shiv.min.js"></script>
+  <script src=".js/respond.min.js"></script>
   <![endif]-->
  </head>
  <body>
@@ -87,7 +87,7 @@
 </td>
       <td class="success small"><div align="right">100.00%</div></td>
       <td class="success small"><div align="right">2&nbsp;/&nbsp;2</div></td>
-      <td class="success small">5</td>
+      <td class="success small">4</td>
       <td class="success big">       <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
            <span class="sr-only">100.00% covered (success)</span>
@@ -99,7 +99,7 @@
      </tr>
 
      <tr>
-      <td class="success" colspan="4">&nbsp;<a href="#56"><abbr title="__construct($projectId, $apiKey, $baseUri = 'http://api.crowdin.net/api/', HttpClient $client = null)">__construct</abbr></a></td>
+      <td class="success" colspan="4">&nbsp;<a href="#56"><abbr title="__construct(string $projectId, string $apiKey, string $baseUri = 'https://api.crowdin.com/api/', HttpClient $client = null)">__construct</abbr></a></td>
       <td class="success big">       <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
            <span class="sr-only">100.00% covered (success)</span>
@@ -108,7 +108,7 @@
 </td>
       <td class="success small"><div align="right">100.00%</div></td>
       <td class="success small"><div align="right">1&nbsp;/&nbsp;1</div></td>
-      <td class="success small">2</td>
+      <td class="success small">1</td>
       <td class="success big">       <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
            <span class="sr-only">100.00% covered (success)</span>
@@ -120,7 +120,7 @@
      </tr>
 
      <tr>
-      <td class="success" colspan="4">&nbsp;<a href="#74"><abbr title="__get($name)">__get</abbr></a></td>
+      <td class="success" colspan="4">&nbsp;<a href="#74"><abbr title="__get(string $name)">__get</abbr></a></td>
       <td class="success big">       <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
            <span class="sr-only">100.00% covered (success)</span>
@@ -200,12 +200,12 @@
      <tr><td><div align="right"><a name="53"></a><a href="#53">53</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></td></tr>
      <tr><td><div align="right"><a name="54"></a><a href="#54">54</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@since&nbsp;&nbsp;&nbsp;&nbsp;1.0</span></td></tr>
      <tr><td><div align="right"><a name="55"></a><a href="#55">55</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
-     <tr><td><div align="right"><a name="56"></a><a href="#56">56</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">__construct</span><span class="keyword">(</span><span class="default">$projectId</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$apiKey</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$baseUri</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">'http://api.crowdin.net/api/'</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">HttpClient</span><span class="default">&nbsp;</span><span class="default">$client</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">null</span><span class="keyword">)</span></td></tr>
+     <tr><td><div align="right"><a name="56"></a><a href="#56">56</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">__construct</span><span class="keyword">(</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$projectId</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$apiKey</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$baseUri</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">'https://api.crowdin.com/api/'</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">HttpClient</span><span class="default">&nbsp;</span><span class="default">$client</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">null</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="57"></a><a href="#57">57</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr class="covered-by-large-tests popin" data-title="1 test covers line 58" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="58"></a><a href="#58">58</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">projectId</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$projectId</span><span class="keyword">;</span></td></tr>
      <tr class="covered-by-large-tests popin" data-title="1 test covers line 59" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="59"></a><a href="#59">59</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">apiKey</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$apiKey</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="60"></a><a href="#60">60</a></div></td><td class="codeLine"></td></tr>
-     <tr class="covered-by-large-tests popin" data-title="1 test covers line 61" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="61"></a><a href="#61">61</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">httpClient</span><span class="default">&nbsp;&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="keyword">isset</span><span class="keyword">(</span><span class="default">$client</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">?</span><span class="default">&nbsp;</span><span class="default">$client</span><span class="default">&nbsp;</span><span class="keyword">:</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">HttpClient</span><span class="keyword">(</span><span class="keyword">[</span><span class="default">'base_uri'</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">$baseUri</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr class="covered-by-large-tests popin" data-title="1 test covers line 61" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="61"></a><a href="#61">61</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">httpClient</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$client</span><span class="default">&nbsp;</span><span class="default">??</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">HttpClient</span><span class="keyword">(</span><span class="keyword">[</span><span class="default">'base_uri'</span><span class="default">&nbsp;</span><span class="default">=&gt;</span><span class="default">&nbsp;</span><span class="default">$baseUri</span><span class="keyword">]</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr class="covered-by-large-tests popin" data-title="1 test covers line 62" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="62"></a><a href="#62">62</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
      <tr><td><div align="right"><a name="63"></a><a href="#63">63</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="64"></a><a href="#64">64</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
@@ -218,7 +218,7 @@
      <tr><td><div align="right"><a name="71"></a><a href="#71">71</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@since&nbsp;&nbsp;&nbsp;1.0</span></td></tr>
      <tr><td><div align="right"><a name="72"></a><a href="#72">72</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@throws&nbsp;&nbsp;\InvalidArgumentException&nbsp;If&nbsp;$name&nbsp;is&nbsp;not&nbsp;a&nbsp;valid&nbsp;sub&nbsp;class.</span></td></tr>
      <tr><td><div align="right"><a name="73"></a><a href="#73">73</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
-     <tr><td><div align="right"><a name="74"></a><a href="#74">74</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">__get</span><span class="keyword">(</span><span class="default">$name</span><span class="keyword">)</span></td></tr>
+     <tr><td><div align="right"><a name="74"></a><a href="#74">74</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">__get</span><span class="keyword">(</span><span class="default">string</span><span class="default">&nbsp;</span><span class="default">$name</span><span class="keyword">)</span></td></tr>
      <tr><td><div align="right"><a name="75"></a><a href="#75">75</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr class="covered-by-large-tests popin" data-title="2 tests cover line 76" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test__get&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;Tests\CrowdinTest::test__getException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="76"></a><a href="#76">76</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$class</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">'ElKuKu\\Crowdin\\Package\\'</span><span class="default">&nbsp;</span><span class="keyword">.</span><span class="default">&nbsp;</span><span class="default">ucfirst</span><span class="keyword">(</span><span class="default">$name</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="77"></a><a href="#77">77</a></div></td><td class="codeLine"></td></tr>
@@ -247,36 +247,14 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.4-7ubuntu2.1</a> with <a href="https://xdebug.org/">Xdebug 2.4.0</a> and <a href="https://phpunit.de/">PHPUnit 5.4.4</a> at Fri Jun 17 16:00:03 UTC 2016.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 5.2.1</a> using <a href="https://secure.php.net/" target="_top">PHP 7.1.6-1~ubuntu17.04.1+deb.sury.org+1</a> with <a href="https://xdebug.org/">Xdebug 2.5.5</a> and <a href="https://phpunit.de/">PHPUnit 6.2.2</a> at Mon Jul 3 15:59:57 UTC 2017.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
    </footer>
   </div>
-  <script src="js/jquery.min.js" type="text/javascript"></script>
-  <script src="js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="js/holder.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-  $(function() {
-   var $window   = $(window)
-     , $top_link = $('#toplink')
-     , $body     = $('body, html')
-     , offset    = $('#code').offset().top;
-
-   $top_link.hide().click(function(event) {
-    event.preventDefault();
-    $body.animate({scrollTop:0}, 800);
-   });
-
-   $window.scroll(function() {
-    if($window.scrollTop() > offset) {
-     $top_link.fadeIn();
-    } else {
-     $top_link.fadeOut();
-    }
-   }).scroll();
-
-   $('.popin').popover({trigger: 'hover'});
-  });
-  </script>
+  <script src=".js/jquery.min.js" type="text/javascript"></script>
+  <script src=".js/bootstrap.min.js" type="text/javascript"></script>
+  <script src=".js/holder.min.js" type="text/javascript"></script>
+  <script src=".js/file.js" type="text/javascript"></script>
  </body>
 </html>
