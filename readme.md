@@ -42,7 +42,7 @@ $crowdin->translation->download('all.zip', '/local/path/to/package.zip');
 
 ## Methods
 
-[API Documentation](https://elkuku.github.io/crowdin-api/docs/)
+[API Documentation](https://elkuku.github.io/crowdin-api/api/)
 
 ### Project
 * `create()` https://crowdin.com/page/api/create-project
