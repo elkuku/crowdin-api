@@ -1,2 +1,2 @@
-/_site/*
-phpdoc-cache*
+/build
+/vendor
