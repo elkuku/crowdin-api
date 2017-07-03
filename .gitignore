@@ -1,4 +1,4 @@
-/vendor/*
-/coverage/*
-/build/logs/*
+/vendor
+/build/coverage
+/build/logs
 /phpunit.xml
