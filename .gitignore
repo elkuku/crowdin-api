@@ -1,4 +1,6 @@
 /vendor
 /build/coverage
 /build/logs
+/build/api
+/build/cache
 /phpunit.xml
