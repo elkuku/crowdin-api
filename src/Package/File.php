@@ -128,7 +128,11 @@ Class File extends Package
 			$language
 		);
 		if ($xliff) {
-			$path .= '&format=xliff';
+			$fileExt = explode('.', $file);
+			$fileExt = array_pop($fileExt);
+			if ($fileExt != 'xliff') {
+				$path .= '&format=xliff';
+			}
 		}
 
 		return $this->getHttpClient()
