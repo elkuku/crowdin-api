@@ -107,12 +107,12 @@ Class File extends Package
 
 	/**
 	 * This method exports single translated files from Crowdin.
-	 * Additionally, it can be applied to export XLIFF files for offline localization. (@todo)
+	 * Additionally, it can be applied to export XLIFF files for offline localization.
 	 *
 	 * @param   string  $file      The file name.
 	 * @param   string  $language  The language tag.
 	 * @param   string  $toPath    Export to path.
-	 * @param   bool  	$xcliff    Export in xliff ext.
+	 * @param   bool  	$xliff    Export in xliff ext.
 	 *
 	 * @see    https://crowdin.com/page/api/export-file
 	 * @since  1.0
