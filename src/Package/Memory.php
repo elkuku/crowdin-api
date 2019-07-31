@@ -22,6 +22,7 @@ Class Memory extends Package
 	/**
 	 * Download Crowdin project Translation Memory as TMX file.
 	 *
+	 * @param   string  $toPath    Export to path.
 	 * @param   boolean  $includeAssigned  Defines whether the assigned TMs should be included in downloaded TMX file.
 	 *                                     Acceptable values are: 0, 1.
 	 *                                     Default is 1.
@@ -33,7 +34,7 @@ Class Memory extends Package
 	 *
 	 * @return ResponseInterface
 	 */
-	public function download(bool $includeAssigned = true, string $sourceLanguage = '', string $targetLanguage = '') : ResponseInterface
+	public function download(string $toPath, bool $includeAssigned = true, string $sourceLanguage = '', string $targetLanguage = '') : ResponseInterface
 	{
 		$url = $this->getBasePath('download-tm');
 		if ($includeAssigned) {
@@ -46,7 +47,7 @@ Class Memory extends Package
 			$url .= '&target_language=' . $targetLanguage;
 		}
 		return $this->getHttpClient()
-			->get($url);
+			->get($url, ['sink' => $toPath]);
 	}
 
 	/**
