@@ -35,6 +35,8 @@ Class Translation extends Package
 	 *                                                 Acceptable values are: 0 or 1. Default is 0.
 	 * @param   boolean       $autoImproveImports      Mark uploaded translations as approved.
 	 *                                                 Acceptable values are: 0 or 1. Default is 0.
+	 * @param   boolean       $xliff       						 Specify this parameter if translations are uploaded to the project in XLIFF file format.
+	 *                                                 Acceptable values are: 0 or 1. Default is 0.
 	 *
 	 * @see     https://crowdin.com/page/api/upload-translation
 	 * @since   1.0.1
@@ -43,7 +45,7 @@ Class Translation extends Package
 	 */
 	public function upload(
 		Languagefile $languagefile, string $language, bool $importDuplicates = false,
-		bool $importEqualSuggestions = false, bool $autoImproveImports = false) : ResponseInterface
+		bool $importEqualSuggestions = false, bool $autoImproveImports = false, bool $xliff = false) : ResponseInterface
 	{
 		$data = [];
 
@@ -66,6 +68,13 @@ Class Translation extends Package
 			'name'     => 'language',
 			'contents' => $language
 		];
+
+		if ($xliff) {
+			$data[] = [
+				'name'     => 'format',
+				'contents' => 'xliff'
+			];
+		}
 
 		$data[] = [
 			'name'     => 'files[' . $languagefile->getCrowdinPath() . ']',
