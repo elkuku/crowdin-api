@@ -107,18 +107,19 @@ Class File extends Package
 
 	/**
 	 * This method exports single translated files from Crowdin.
-	 * Additionally, it can be applied to export XLIFF files for offline localization. (@todo)
+	 * Additionally, it can be applied to export XLIFF files for offline localization.
 	 *
 	 * @param   string  $file      The file name.
 	 * @param   string  $language  The language tag.
 	 * @param   string  $toPath    Export to path.
+	 * @param   bool  	$xliff    Export in xliff ext.
 	 *
 	 * @see    https://crowdin.com/page/api/export-file
 	 * @since  1.0
 	 *
 	 * @return ResponseInterface
 	 */
-	public function export(string $file, string $language, string $toPath) : ResponseInterface
+	public function export(string $file, string $language, string $toPath, bool $xliff = false) : ResponseInterface
 	{
 		$path = sprintf(
 			'%s&file=%s&language=%s',
@@ -126,6 +127,13 @@ Class File extends Package
 			$file,
 			$language
 		);
+		if ($xliff) {
+			$fileExt = explode('.', $file);
+			$fileExt = array_pop($fileExt);
+			if ($fileExt != 'xliff') {
+				$path .= '&format=xliff';
+			}
+		}
 
 		return $this->getHttpClient()
 			->get($path, ['sink' => $toPath]);
