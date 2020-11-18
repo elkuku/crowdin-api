@@ -322,8 +322,8 @@ class FakeResponse implements ResponseInterface
 	 *
 	 * @return $this
 	 */
-	public function setBody($string)
-	{
+	public function setBody($string): self
+    {
 		$this->body = $string;
 
 		return $this;

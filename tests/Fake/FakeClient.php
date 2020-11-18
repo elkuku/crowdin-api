@@ -9,6 +9,7 @@
 namespace Tests\Fake;
 
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class FakeClient
@@ -17,31 +18,31 @@ use GuzzleHttp\Client;
  */
 class FakeClient extends Client
 {
-	/**
-	 * Get.
-	 *
-	 * @param   string  $uri      The URI.
-	 * @param   array   $options  Array with options.
-	 *
-	 * @return string
-	 */
-	public function get($uri, array $options = [])
-	{
-		return (new FakeResponse)
-			->setBody(count($options) ? $uri . '&' . http_build_query($options) : $uri);
-	}
+    /**
+     * Get.
+     *
+     * @param string $uri The URI.
+     * @param array $options Array with options.
+     *
+     * @return ResponseInterface
+     */
+    public function get($uri, array $options = []): ResponseInterface
+    {
+        return (new FakeResponse)
+            ->setBody(count($options) ? $uri . '&' . http_build_query($options) : $uri);
+    }
 
-	/**
-	 * Post.
-	 *
-	 * @param   string  $uri      The URI.
-	 * @param   array   $options  Array with options.
-	 *
-	 * @return string
-	 */
-	public function post($uri, array $options = [])
-	{
-		return (new FakeResponse)
-			->setBody(count($options) ? $uri . '&' . http_build_query($options) : $uri);
-	}
+    /**
+     * Post.
+     *
+     * @param string $uri The URI.
+     * @param array $options Array with options.
+     *
+     * @return ResponseInterface
+     */
+    public function post($uri, array $options = []): ResponseInterface
+    {
+        return (new FakeResponse)
+            ->setBody(count($options) ? $uri . '&' . http_build_query($options) : $uri);
+    }
 }

@@ -9,7 +9,6 @@
 namespace ElKuKu\Crowdin\Package;
 
 use ElKuKu\Crowdin\Package;
-
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -17,35 +16,37 @@ use Psr\Http\Message\ResponseInterface;
  *
  * @since  1.0.5
  */
-Class Language extends Package
+class Language extends Package
 {
-	/**
-	 * Get supported languages list with Crowdin codes mapped to locale name and standardized codes.
-	 *
-	 * @since 1.0.5
-	 * @see https://crowdin.com/page/api/supported-languages
-	 *
-	 * @return ResponseInterface
-	 */
-	public function getSupported() : ResponseInterface
-	{
-		return $this->getHttpClient()
-			->get('supported-languages');
-	}
+    /**
+     * Get supported languages list with Crowdin codes mapped to locale name and standardized codes.
+     *
+     * @return ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @since 1.0.5
+     * @see https://crowdin.com/page/api/supported-languages
+     *
+     */
+    public function getSupported(): ResponseInterface
+    {
+        return $this->getHttpClient()
+            ->get('supported-languages');
+    }
 
-	/**
-	 * Get the detailed translation progress for specified language.
-	 *
-	 * @param   string  $language  The language code.
-	 *
-	 * @since 1.0.5
-	 * @see https://crowdin.com/page/api/language-status
-	 *
-	 * @return ResponseInterface
-	 */
-	public function getStatus(string $language) : ResponseInterface
-	{
-		return $this->getHttpClient()
-			->post($this->getBasePath('language-status'), ['form_params' => ['language' => $language]]);
-	}
+    /**
+     * Get the detailed translation progress for specified language.
+     *
+     * @param string $language The language code.
+     *
+     * @return ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @since 1.0.5
+     * @see https://crowdin.com/page/api/language-status
+     *
+     */
+    public function getStatus(string $language): ResponseInterface
+    {
+        return $this->getHttpClient()
+            ->post($this->getBasePath('language-status'), ['form_params' => ['language' => $language]]);
+    }
 }
