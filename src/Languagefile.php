@@ -83,8 +83,8 @@ class Languagefile
 	 *
 	 * @return $this
 	 */
-	public function setExportPattern(string $exportPattern)
-	{
+	public function setExportPattern(string $exportPattern): self
+    {
 		$this->exportPattern = $exportPattern;
 
 		return $this;
@@ -107,8 +107,8 @@ class Languagefile
 	 *
 	 * @return $this
 	 */
-	public function setTitle(string $title)
-	{
+	public function setTitle(string $title): self
+    {
 		$this->title = $title;
 
 		return $this;

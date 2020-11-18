@@ -21,19 +21,19 @@ abstract class Package
 	 * The Crowdin project id.
 	 * @var string
 	 */
-	private $projectId = '';
+	private $projectId;
 
 	/**
 	 * The Crowdin API key.
 	 * @var string
 	 */
-	private $apiKey = '';
+	private $apiKey;
 
 	/**
 	 * The HTTP client object.
 	 * @var HttpClient
 	 */
-	private $httpClient = null;
+	private $httpClient;
 
 	/**
 	 * Constructor.
